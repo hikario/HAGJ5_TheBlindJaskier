@@ -24,6 +24,13 @@ namespace Assets.Scripts.Model
         High,
     }
 
+    public enum FanLevel
+    {
+        NotFanYet,
+        Fan,
+        NotFanAlready,
+        Upset,
+    }
     /// <summary>
     /// Represents customer in general ("Regular customers" and "Repeat Customers")
     /// </summary>
@@ -49,7 +56,7 @@ namespace Assets.Scripts.Model
         //    - if expectations exceeded, buy four extra drinks
         //    - if expectations unmet, lose expanded preference
         //        - if expectations unmet twice, they lose repeat status
-        int _fanLevel = 0;
+        FanLevel _fanLevel = Model.FanLevel.NotFanYet;
 
         public PassEnum Password { get; set; }
         public AlcoholQualityes QualityPreference { get; set; }
@@ -57,7 +64,7 @@ namespace Assets.Scripts.Model
         public AlcoholQualityes QualityPreferenceOriginal { get; }
         public AlcoholPrices PricePreferenceOriginal { get; }
         public bool IsOnList { get; protected set; } = false;
-        
+                
         public BaseCustomer() 
         {
             Password = (PassEnum)Random.Range(0, 1);
@@ -65,23 +72,25 @@ namespace Assets.Scripts.Model
             PricePreference = PricePreferenceOriginal = (AlcoholPrices)Random.Range(0, 3);
         }
 
+        //different for each type of customer
         virtual public int ProcessExpectation(AlcoholQualityes currentQuality, AlcoholPrices currentPrice)
         {
-            // not sure if we want to do trade offs, like if cutomer want to pay more money if quality is more than he expected.
-            var expectationMatch = CheckExpectation(currentQuality, currentPrice);
+            // if poison in play - all 
+            int expectationMatch = GlobalBar.IsPoisoningNow ? -1: CheckExpectation(currentQuality, currentPrice);
 
             if (expectationMatch < 0)
-                --FanLevel;
+                decreaseFanLevel();
 
             //- if expectations met, become repeat customers and increase popularity,
             if (expectationMatch >= 0)
             {
                 if (IsOnList == false) IsOnList = true;
-                ++FanLevel; //and increase popularity
+                increaseFanLevel();
             }
             
             //if expectations exceeded in one, buy 3 drinks total
-            int i = expectationMatch;
+            int i = expectationMatch + 1;
+            if (i < 1) i = 1;
             if (i > 3) i = 3;
             while (--i > 0)
                 BuyExtraDrink();
@@ -111,44 +120,38 @@ namespace Assets.Scripts.Model
             return extraexpectations;
         }
 
-        public int FanLevel
+        private void increaseFanLevel()
         {
-            get => _fanLevel;
-            set
+            if (_fanLevel == FanLevel.NotFanYet) // can be fan only once per discussion
             {
-                if (value > _fanLevel && _fanLevel > 0 ) // it is already positive..
-                    return;
+                _fanLevel = FanLevel.Fan;
 
-                if (value < _fanLevel && _fanLevel < 0) // it is already negative..
-                    return;
+                if (QualityPreference != AlcoholQualityes.None)
+                    --QualityPreference;
 
-                _fanLevel = value;
-                if (_fanLevel == 0)
-                {
-                    QualityPreference = QualityPreferenceOriginal;
-                    PricePreference = PricePreferenceOriginal;
-                }
-                else if (_fanLevel > 0)
-                {
-                    // and increase price and quality preference range
+                if (PricePreference != AlcoholPrices.High)
+                    ++PricePreference;
+            }
+        }
 
-                    if (QualityPreference != AlcoholQualityes.None)
-                        --QualityPreference;
+        private void decreaseFanLevel()
+        {
+            if (_fanLevel == FanLevel.NotFanAlready || _fanLevel == FanLevel.NotFanYet)
+                _fanLevel = FanLevel.Upset;
 
-                    if (PricePreference != AlcoholPrices.High)
-                        ++PricePreference;
-                }
-                //else  if _fanLevel < 0 customer will not come back
+            if (_fanLevel == FanLevel.Fan)
+            {
+                _fanLevel = FanLevel.NotFanAlready;
 
-
+                QualityPreference = QualityPreferenceOriginal;
+                PricePreference = PricePreferenceOriginal;
             }
         }
 
         protected void BuyExtraDrink()
         {
             // event for anymation..
-
-            
+            GlobalBar.OnCustomerByDrink();
         }
     }
 }

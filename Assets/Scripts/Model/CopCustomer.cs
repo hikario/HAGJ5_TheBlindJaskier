@@ -4,6 +4,9 @@ namespace Assets.Scripts.Model
 {
     public class CopCustomer : BaseCustomer
     {
+        //Brige logic (here or in separate class) :
+        // dialog to enter money (player doesn't know how much cop need, as result we change raid probability
+
         //Cops:
         //    - randomly know or don't know the password
         //    - never on the list
@@ -20,7 +23,7 @@ namespace Assets.Scripts.Model
         {
             base.IsOnList = false;
             base.QualityPreference = (AlcoholQualityes)Random.Range(1, 3); // Igor: assume they have better income and livestyle than workers from moving companies..
-            base.PricePreference = (AlcoholPrices)Random.Range(1, 3); // it could be med-high instead
+            base.PricePreference = (AlcoholPrices)Random.Range(0, 2); // it could be med-high instead
             IsDemandBribe = Random.Range(1, 20) == 1; // 1/20 chance if they're allowed in they demand bribe
         }
 
