@@ -25,8 +25,6 @@ public class GameFlow : MonoBehaviour
     void Start()
     {
         currentState = DayState.MORNING;
-        dayNumber = 1;
-        currentYear = 1919 + dayNumber;
         morningCanvas.SetActive(true);
         eveningCanvas.SetActive(false);
         nightCanvas.SetActive(false);
@@ -72,7 +70,8 @@ public class GameFlow : MonoBehaviour
 
     void ProgressYear()
     {
-        currentYear = currentYear + 1;
         dayNumber = dayNumber + 1;
+        Assets.Scripts.Model.GlobalBar.Year = Assets.Scripts.Model.GlobalBar.Year + 1;
+        EventManager.TriggerEvent("YearChanged");
     }
 }

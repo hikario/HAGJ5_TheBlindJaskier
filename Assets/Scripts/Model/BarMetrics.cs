@@ -36,6 +36,7 @@ namespace Assets.Scripts.Model
         /// bitvise mask of available sources, all 3 sources = 7 ( 1 | 2 | 4 )
         /// </summary>
         public static AlcoholSources SourceAvailability { get; set; }
+        public static int Year { get; set; }
         public static AlcoholSources CurrentSource { get; set; }
         public static AlcoholQualityes CurrentQuality { get; set; }
         public static AlcoholPrices CurrentAlcoholPrices { get; set; }
@@ -52,6 +53,7 @@ namespace Assets.Scripts.Model
                 SourceAvailability |= t;
 
             RaidProbabilityStep = 5; // could come from some settings
+            Year = 1919;
         }
         
         public static bool IsSourceAvailable (AlcoholSources alcoholSource)
