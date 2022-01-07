@@ -978,7 +978,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 218609856}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagatePricesChoice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Norm
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &218609856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,7 +1113,7 @@ GameObject:
   - component: {fileID: 252509403}
   - component: {fileID: 252509405}
   m_Layer: 0
-  m_Name: Test
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1318,6 +1330,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &265068166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265068168}
+  - component: {fileID: 265068167}
+  m_Layer: 0
+  m_Name: CustomerGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &265068167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265068166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c23ad1b356c2a43878b89d83aa55b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowThreshold: 30
+  highThreshold: 60
+  lowCustomerQuantity: 5
+  averageCustomerQuantity: 10
+  highCustomerQuantity: 20
+  yearSetForImportantSpawn: 5
+  chanceToSpawnPolice: 0.05
+--- !u!4 &265068168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265068166}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 990.47485, y: 444.05725, z: -252.51936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303106526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1817,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 340626553}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagateQualityChoice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Original
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &340626553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2340,8 +2414,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 456877499}
+  - component: {fileID: 456877500}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: EventManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2361,6 +2436,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &456877500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456877498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f79de9ab84812c48b3ae388094ee2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &477437956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,7 +2665,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 514435972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagateQualityChoice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Diluted
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &514435972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2699,7 +2798,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 528731818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagatePricesChoice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Low
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &528731818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3272,6 +3383,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667494768}
   m_CullTransparentMesh: 1
+--- !u!1 &698863499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698863501}
+  - component: {fileID: 698863500}
+  m_Layer: 0
+  m_Name: ButtonPropagator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &698863500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698863499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6a269f612ca154da00b9815d67393f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &698863501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698863499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 990.47485, y: 444.05725, z: -252.51936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713320574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,7 +4282,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.503, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4188,7 +4342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &969946290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5165,16 +5319,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252509403}
-        m_TargetAssemblyTypeName: TestScript, Assembly-CSharp
-        m_MethodName: TestButton
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagateQualityChoice
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: '"Thinned"'
+          m_StringArgument: Thinned
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1115667219
@@ -5265,7 +5419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6014,8 +6168,8 @@ RectTransform:
   m_Father: {fileID: 1378810233}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.503, y: 0}
-  m_AnchorMax: {x: 0.503, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6276,7 +6430,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1554398228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagatePricesChoice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: High
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1554398228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6472,7 +6638,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1565094352}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagateSourceChoice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Detroit
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1565094352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6794,6 +6972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692280351}
   - component: {fileID: 1692280352}
+  - component: {fileID: 1692280353}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -6862,18 +7041,30 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1849211740}
   m_FillRect: {fileID: 1555851974}
   m_HandleRect: {fileID: 1849211739}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MaxValue: 100
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1692280353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692280350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab49260181870747bcaf04f4bdb1c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1710516349
 GameObject:
   m_ObjectHideFlags: 0
@@ -7018,6 +7209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744256432}
   - component: {fileID: 1744256433}
+  - component: {fileID: 1744256434}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -7086,18 +7278,30 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2000701108}
   m_FillRect: {fileID: 845930537}
   m_HandleRect: {fileID: 2000701107}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
+  m_MaxValue: 100
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1744256434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744256431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab49260181870747bcaf04f4bdb1c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1752240262
 GameObject:
   m_ObjectHideFlags: 0
@@ -7452,6 +7656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782418537}
   - component: {fileID: 1782418538}
+  - component: {fileID: 1782418539}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -7520,18 +7725,30 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1468543277}
   m_FillRect: {fileID: 965616128}
   m_HandleRect: {fileID: 1468543276}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.503
+  m_MaxValue: 100
+  m_WholeNumbers: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1782418539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782418536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab49260181870747bcaf04f4bdb1c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1788836671
 GameObject:
   m_ObjectHideFlags: 0
@@ -8192,7 +8409,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1863820392}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagateSourceChoice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Moonshine
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1863820392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8248,7 +8477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1874139974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8453,7 +8682,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1888481879}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 698863500}
+        m_TargetAssemblyTypeName: ButtonPropagater, Assembly-CSharp
+        m_MethodName: propagateSourceChoice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Mafia
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1888481879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9817,6 +10058,7 @@ GameObject:
   - component: {fileID: 2125257563}
   - component: {fileID: 2125257565}
   - component: {fileID: 2125257564}
+  - component: {fileID: 2125257566}
   m_Layer: 0
   m_Name: Text_List1
   m_TagString: Untagged
@@ -9946,6 +10188,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125257562}
   m_CullTransparentMesh: 1
+--- !u!114 &2125257566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125257562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd5882e9abee724f99c87276725d67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2125382282
 GameObject:
   m_ObjectHideFlags: 0

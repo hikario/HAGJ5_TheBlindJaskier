@@ -22,7 +22,7 @@ public class GameFlow : MonoBehaviour
     private GameObject nightCanvas;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currentState = DayState.MORNING;
         morningCanvas.SetActive(true);
@@ -37,6 +37,7 @@ public class GameFlow : MonoBehaviour
             case DayState.MORNING:
                 currentState = DayState.EVENING;
                 SetCanvasesForEvening();
+                EventManager.TriggerEvent("GenerateCustomers");
                 break;
             case DayState.EVENING:
                 currentState = DayState.NIGHT;
@@ -46,6 +47,7 @@ public class GameFlow : MonoBehaviour
                 currentState = DayState.MORNING;
                 ProgressYear();
                 SetCanvasesForMorning();
+                EventManager.TriggerEvent("PopularityUpdate");
                 break;
         }
     }
