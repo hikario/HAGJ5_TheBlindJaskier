@@ -64,6 +64,7 @@ namespace Assets.Scripts.Model
         public AlcoholQualityes QualityPreferenceOriginal { get; }
         public AlcoholPrices PricePreferenceOriginal { get; }
         public bool AllowedToEnter { get; set; } = false;
+        public string Name { get; set; }
 
         public BaseCustomer() 
         {

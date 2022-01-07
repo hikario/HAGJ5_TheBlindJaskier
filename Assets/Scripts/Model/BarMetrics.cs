@@ -48,6 +48,8 @@ namespace Assets.Scripts.Model
         public static int PoisonProbability { get; set; }
         public static List<BaseCustomer> NewCustomers { get; set; }
         public static List<BaseCustomer> AllCustomers { get; set; }
+        public static List<string> PossibleCustomerNames { get; }
+        public static List<string> UsedCustomerNames { get; set; }
         
 
         static GlobalBar()
@@ -56,7 +58,59 @@ namespace Assets.Scripts.Model
                 SourceAvailability |= t;
 
             RaidProbabilityStep = 5; // could come from some settings
+            _popularity = 50;
             Year = 1919;
+            PossibleCustomerNames = GeneratePossibleNames();
+            UsedCustomerNames = new List<string>();
+            AllCustomers = new List<BaseCustomer>();
+        }
+
+        private static List<string> GeneratePossibleNames()
+        {
+            List<string> names = new List<string>();
+            // Louis Spencer
+            // Cameron Hussain
+            // Jay Marshall
+            // Sam Berry
+            // Patrick Lawson
+            // Chris Young
+            // Issac Brennan
+            // Carter Durham
+            // Bryan Dunn
+            // Omar Lucas
+            // Bethany Cooper
+            // Willow Lowe
+            // Amy Brooks
+            // Ava Nicholson
+            // Matilda Barnes
+            // Aiyana Foreman
+            // Emmalyn Farmer
+            // Allison Bradford
+            // Jacqueline Alston
+            // Teresa Whitley
+            names.Add("Louis Spencer");
+            names.Add("Cameron Hussain");
+            names.Add("Jay Marshall");
+            names.Add("Sam Berry");
+            names.Add("Patrick Lawson");
+            names.Add("Chris Young");
+            names.Add("Issac Brennan");
+            names.Add("Carter Durham");
+            names.Add("Bryan Dunn");
+            names.Add("Omar Lucas");
+            //////////
+            names.Add("Bethany Cooper");
+            names.Add("Willow Lowe");
+            names.Add("Amy Brooks");
+            names.Add("Ava Nicholson");
+            names.Add("Matilda Barnes");
+            names.Add("Aiyana Foreman");
+            names.Add("Emmalyn Farmer");
+            names.Add("Allison Bradford");
+            names.Add("Jacqueline Alston");
+            names.Add("Teresa Whitley");
+
+            return names;
         }
         
         public static bool IsSourceAvailable (AlcoholSources alcoholSource)

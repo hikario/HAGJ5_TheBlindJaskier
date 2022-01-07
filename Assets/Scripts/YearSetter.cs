@@ -6,14 +6,11 @@ public class YearSetter : MonoBehaviour
 {
     // Start is called before the first frame update
     private TMPro.TextMeshProUGUI textField;
-    void Start()
+    void Awake()
     {
         textField = gameObject.GetComponent<TMPro.TextMeshProUGUI>();
         textField.text = Assets.Scripts.Model.GlobalBar.Year.ToString();
-    }
-
-    void Awake()
-    {
+        
         EventManager.RegisterEventListener("YearChanged", UpdateYear);
     }
 
