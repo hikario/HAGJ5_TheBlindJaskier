@@ -706,6 +706,7 @@
     <Compile Include="Assets\Scripts\Model\BarMetrics.cs" />
     <Compile Include="Assets\Scripts\Model\BaseCustomer.cs" />
     <Compile Include="Assets\Scripts\Model\CopCustomer.cs" />
+    <Compile Include="Assets\Scripts\Model\Generator.cs" />
     <Compile Include="Assets\Scripts\Model\ImportantCustomer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

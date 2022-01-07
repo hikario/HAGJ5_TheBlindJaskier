@@ -23,7 +23,7 @@ namespace Assets.Scripts.Model
 
         public ImportantCustomer()
         {
-            base.IsOnList = true; ////always on the list
+            //base.IsOnList = true; ////always on the list
             base.QualityPreference = AlcoholQualityes.High; //always want high quality
             base.PricePreference = AlcoholPrices.High; //always have full price preference
         }
@@ -37,6 +37,10 @@ namespace Assets.Scripts.Model
                 guardFromNextRaid();
 
             return expectationMatch;
+        }
+        override public bool DontWantToReturn()
+        {
+            return true; // can't be known customer
         }
         private void callTheCops()
         {
