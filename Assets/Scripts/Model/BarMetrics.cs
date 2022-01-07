@@ -41,6 +41,7 @@ namespace Assets.Scripts.Model
         public static AlcoholQualityes CurrentQuality { get; set; }
         public static AlcoholPrices CurrentAlcoholPrices { get; set; }
         public static decimal Money { get; private set; }
+        public static decimal EachDrinkCost { get; set; }
         public static int SatisfiedImportantCustomers { get; set; }
         public static int RaidProbability { get; private set; }
         public static int RaidProbabilityStep { get; set; }
@@ -48,7 +49,7 @@ namespace Assets.Scripts.Model
         public static List<BaseCustomer> NewCustomers { get; set; }
         public static List<BaseCustomer> AllCustomers { get; set; }
         
-        
+
         static GlobalBar()
         {
             foreach (AlcoholSources t in System.Enum.GetValues(typeof(AlcoholSources)))
@@ -92,6 +93,8 @@ namespace Assets.Scripts.Model
 
         public static void OnDayChange()
         {
+            Money += EachDrinkCost * _countOfSoldDrinks;
+
             _countOfSoldDrinks = 0; // re-set count of drinks
         }
 

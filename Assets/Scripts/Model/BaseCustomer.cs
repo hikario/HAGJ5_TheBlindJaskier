@@ -63,8 +63,8 @@ namespace Assets.Scripts.Model
         public AlcoholPrices PricePreference { get; set; }
         public AlcoholQualityes QualityPreferenceOriginal { get; }
         public AlcoholPrices PricePreferenceOriginal { get; }
-        public bool IsOnList { get; protected set; } = false;
-                
+        public bool AllowedToEnter { get; set; } = false;
+
         public BaseCustomer() 
         {
             Password = (PassEnum)Random.Range(0, 1);
@@ -83,10 +83,7 @@ namespace Assets.Scripts.Model
 
             //- if expectations met, become repeat customers and increase popularity,
             if (expectationMatch >= 0)
-            {
-                if (IsOnList == false) IsOnList = true;
                 increaseFanLevel();
-            }
             
             //if expectations exceeded in one, buy 3 drinks total
             int i = expectationMatch + 1;
@@ -96,6 +93,11 @@ namespace Assets.Scripts.Model
                 BuyExtraDrink();
 
             return expectationMatch;
+        }
+
+        virtual public bool DontWantToReturn()
+        {
+            return _fanLevel == FanLevel.Upset;
         }
 
         /// <summary>
