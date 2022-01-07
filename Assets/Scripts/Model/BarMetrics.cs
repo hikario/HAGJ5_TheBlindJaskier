@@ -47,7 +47,8 @@ namespace Assets.Scripts.Model
         public static int RaidProbabilityStep { get; set; }
         public static int PoisonProbability { get; set; }
         public static List<BaseCustomer> NewCustomers { get; set; }
-        public static List<BaseCustomer> AllCustomers { get; set; }
+        public static List<BaseCustomer> OldCustomers { get; set; }
+        public static BaseCustomer ActiveCustomer { get; set; }
         public static List<string> PossibleCustomerNames { get; }
         public static List<string> UsedCustomerNames { get; set; }
         
@@ -62,7 +63,7 @@ namespace Assets.Scripts.Model
             Year = 1919;
             PossibleCustomerNames = GeneratePossibleNames();
             UsedCustomerNames = new List<string>();
-            AllCustomers = new List<BaseCustomer>();
+            OldCustomers = new List<BaseCustomer>();
         }
 
         private static List<string> GeneratePossibleNames()
