@@ -1285,6 +1285,7 @@ MonoBehaviour:
   Accepted: {fileID: 7400000, guid: d1d169554d6463041a7bae47f00b77fa, type: 2}
   Rejected: {fileID: 7400000, guid: 0845aaece9b89f442bf1bfc5b83413b0, type: 2}
   Exit: {fileID: 7400000, guid: 81c5720be5c485841b2fc65de947fcef, type: 2}
+  MyArmy: []
 --- !u!4 &131684443
 Transform:
   m_ObjectHideFlags: 0
@@ -7548,10 +7549,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 330441456648270442, guid: 5699a01ca34ad384bacb079e20c6bc8c, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 846622885462151686, guid: 5699a01ca34ad384bacb079e20c6bc8c, type: 3}
       propertyPath: m_Name
       value: ME_Customer_Female01
@@ -11022,6 +11019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestCharacter: {fileID: 621532285}
+  TestGenerator: {fileID: 2109695742}
 --- !u!1 &1212717773
 GameObject:
   m_ObjectHideFlags: 0
@@ -22219,6 +22217,8 @@ MonoBehaviour:
   Accepted: {fileID: 7400000, guid: d1d169554d6463041a7bae47f00b77fa, type: 2}
   Rejected: {fileID: 7400000, guid: 0845aaece9b89f442bf1bfc5b83413b0, type: 2}
   Exit: {fileID: 7400000, guid: 81c5720be5c485841b2fc65de947fcef, type: 2}
+  MyArmy:
+  - {fileID: 2019684594087935427, guid: 47ee034ab3a6cc843bcd1d0b5fd37070, type: 3}
 --- !u!1 &2111562204
 GameObject:
   m_ObjectHideFlags: 0
@@ -23194,7 +23194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6601767422565238019, guid: 5699a01ca34ad384bacb079e20c6bc8c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7343145373242522202, guid: 5699a01ca34ad384bacb079e20c6bc8c, type: 3}
       propertyPath: m_IsActive
