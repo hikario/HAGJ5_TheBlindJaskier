@@ -17,9 +17,9 @@ namespace Assets.Scripts.Model
 
         static int _countOfSoldDrinks = 0;
 
-        static object _lockObject_RaidingPoisoning = new();
+        static object _lockObject_RaidingPoisoning = new object();
 
-        static object _lockObject_RaidProbability = new();
+        static object _lockObject_RaidProbability = new object();
         #endregion
 
         // global storage for our bar, could be only one instance
@@ -45,6 +45,8 @@ namespace Assets.Scripts.Model
         public static int RaidProbability { get; private set; }
         public static int RaidProbabilityStep { get; set; }
         public static int PoisonProbability { get; set; }
+        public static List<BaseCustomer> NewCustomers { get; set; }
+        public static List<BaseCustomer> AllCustomers { get; set; }
         
         
         static GlobalBar()
