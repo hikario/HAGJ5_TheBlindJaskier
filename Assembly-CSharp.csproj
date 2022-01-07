@@ -54,24 +54,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MenuButtons.cs" />
-    <Compile Include="Assets\Scripts\SetVolume.cs" />
-    <Compile Include="Assets\Scripts\GameFlow.cs" />
-    <Compile Include="Assets\Scripts\CustomerGenerator.cs" />
+    <Compile Include="Assets\Scripts\ListFiller.cs" />
+    <Compile Include="Assets\Scripts\Model\BarMetrics.cs" />
     <Compile Include="Assets\Scripts\ReverseAnimationContext.cs" />
     <Compile Include="Assets\Scripts\Model\ImportantCustomer.cs" />
-    <Compile Include="Assets\Scripts\Character.cs" />
-    <Compile Include="Assets\Scripts\GeneralAnimationHelper.cs" />
     <Compile Include="Assets\Scripts\SliderUpdater.cs" />
-    <Compile Include="Assets\Scripts\YearSetter.cs" />
-    <Compile Include="Assets\Scripts\EventManager.cs" />
-    <Compile Include="Assets\Scripts\Model\Generator.cs" />
-    <Compile Include="Assets\Scripts\Model\CopCustomer.cs" />
-    <Compile Include="Assets\Scripts\ButtonPropagater.cs" />
+    <Compile Include="Assets\Scripts\CustomerGenerator.cs" />
     <Compile Include="Assets\Scripts\Model\BaseCustomer.cs" />
-    <Compile Include="Assets\Scripts\ListFiller.cs" />
+    <Compile Include="Assets\Scripts\Model\Generator.cs" />
+    <Compile Include="Assets\Scripts\EventManager.cs" />
+    <Compile Include="Assets\Scripts\GeneralAnimationHelper.cs" />
+    <Compile Include="Assets\Scripts\SetVolume.cs" />
+    <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\ButtonPropagater.cs" />
+    <Compile Include="Assets\Scripts\YearSetter.cs" />
+    <Compile Include="Assets\Scripts\Model\CopCustomer.cs" />
+    <Compile Include="Assets\Scripts\GameFlow.cs" />
     <Compile Include="Assets\Scripts\Hotkeys.cs" />
-    <Compile Include="Assets\Scripts\Model\BarMetrics.cs" />
-    <Compile Include="Assets\Scripts\SliderUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packs\TextMesh Pro\Shaders\TMPro.cginc" />
