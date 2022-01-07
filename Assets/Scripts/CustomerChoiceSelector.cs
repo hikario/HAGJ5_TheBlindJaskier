@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CustomerChoiceSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void LetIn()
     {
-        
+        Assets.Scripts.Model.GlobalBar.ActiveCustomers.Add(Assets.Scripts.Model.GlobalBar.ActiveCustomer);
+        EventManager.TriggerEvent("UpdateToNextActiveCustomer");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void KeepOut()
     {
-        
+        EventManager.TriggerEvent("UpdateToNextActiveCustomer");
     }
 }

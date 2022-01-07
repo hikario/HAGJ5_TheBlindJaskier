@@ -38,6 +38,7 @@ public class GameFlow : MonoBehaviour
                 currentState = DayState.EVENING;
                 SetCanvasesForEvening();
                 EventManager.TriggerEvent("GenerateCustomers");
+                Assets.Scripts.Model.GlobalBar.BuyAlchohol();
                 break;
             case DayState.EVENING:
                 currentState = DayState.NIGHT;

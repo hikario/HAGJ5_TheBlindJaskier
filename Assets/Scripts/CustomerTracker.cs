@@ -14,13 +14,13 @@ public class CustomerTracker : MonoBehaviour
         textField.text = "0/0";
 
         EventManager.RegisterEventListener("CustomerListUpdated", UpdateCustomerCount);
-        EventManager.RegisterEventListener("CustomerMoved", MoveCustomerCount);
+        EventManager.RegisterEventListener("UpdateToNextActiveCustomer", MoveCustomerCount);
     }
 
     void OnDestroy()
     {
         EventManager.DeregisterEventListener("CustomerListUpdated", UpdateCustomerCount);
-        EventManager.DeregisterEventListener("CustomerMoved", MoveCustomerCount);
+        EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", MoveCustomerCount);
     }
 
     void UpdateCustomerCount()
@@ -33,6 +33,10 @@ public class CustomerTracker : MonoBehaviour
     void MoveCustomerCount()
     {
         numerator += 1;
+        if (numerator > denominator)
+        {
+            numerator = denominator;
+        }
         textField.text = numerator.ToString() + "/" + denominator.ToString();
     }
 

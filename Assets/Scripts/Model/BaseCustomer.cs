@@ -68,7 +68,7 @@ namespace Assets.Scripts.Model
 
         public BaseCustomer() 
         {
-            Password = (PassEnum)Random.Range(0, 1);
+            Password = (PassEnum)Random.Range(0, 2);
             QualityPreference = QualityPreferenceOriginal = (AlcoholQualityes)Random.Range(0, 3);
             PricePreference = PricePreferenceOriginal = (AlcoholPrices)Random.Range(0, 3);
         }

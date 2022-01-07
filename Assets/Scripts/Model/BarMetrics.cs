@@ -48,6 +48,7 @@ namespace Assets.Scripts.Model
         public static int PoisonProbability { get; set; }
         public static List<BaseCustomer> NewCustomers { get; set; }
         public static List<BaseCustomer> OldCustomers { get; set; }
+        public static List<BaseCustomer> ActiveCustomers { get; set; }
         public static BaseCustomer ActiveCustomer { get; set; }
         public static List<string> PossibleCustomerNames { get; }
         public static List<string> UsedCustomerNames { get; set; }
@@ -64,6 +65,7 @@ namespace Assets.Scripts.Model
             PossibleCustomerNames = GeneratePossibleNames();
             UsedCustomerNames = new List<string>();
             OldCustomers = new List<BaseCustomer>();
+            ActiveCustomers = new List<BaseCustomer>();
         }
 
         private static List<string> GeneratePossibleNames()
@@ -133,8 +135,9 @@ namespace Assets.Scripts.Model
         }
 
         //called once user finished choose variables for the day
-        public static void BuyAlchogol (AlcoholSources selectedAlcoholSource, AlcoholQualityes selectedAlcoholQualitye, AlcoholPrices selectedAlcoholPrice)
+        public static void BuyAlchohol()
         {
+            // All settings will be available from Bar
             decimal calculatedMoney = 0.0M;
             // change PoisonProbability base on type and quality
             // do some calculation base on input parametes and save moneys
