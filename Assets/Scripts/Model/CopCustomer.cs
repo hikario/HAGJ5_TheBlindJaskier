@@ -21,7 +21,6 @@ namespace Assets.Scripts.Model
         public bool IsDemandBribe { get; set; }
         public CopCustomer()
         {
-            base.IsOnList = false;
             base.QualityPreference = (AlcoholQualityes)Random.Range(1, 3); // Igor: assume they have better income and livestyle than workers from moving companies..
             base.PricePreference = (AlcoholPrices)Random.Range(0, 2); // it could be med-high instead
             IsDemandBribe = Random.Range(1, 20) == 1; // 1/20 chance if they're allowed in they demand bribe
@@ -37,6 +36,10 @@ namespace Assets.Scripts.Model
                 guardFromNextRaid(expectationMatch);
 
             return expectationMatch;
+        }
+        override public bool DontWantToReturn()
+        {
+            return true; // can't be known customer
         }
         private void callTheCops()
         {
