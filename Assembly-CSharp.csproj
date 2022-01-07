@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\ListFiller.cs" />
     <Compile Include="Assets\Scripts\Hotkeys.cs" />
     <Compile Include="Assets\Scripts\Model\BarMetrics.cs" />
+    <Compile Include="Assets\Scripts\SliderUpdater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packs\TextMesh Pro\Shaders\TMPro.cginc" />
