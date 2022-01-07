@@ -128,6 +128,7 @@ public class CustomerGenerator : MonoBehaviour
 
         // Notify to update
         EventManager.TriggerEvent("CustomerListUpdated");
+        EventManager.TriggerEvent("SetActiveCustomer");
     }
 
     private Assets.Scripts.Model.BaseCustomer GenerateNormalCustomer()
