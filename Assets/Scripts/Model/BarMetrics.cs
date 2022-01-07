@@ -46,6 +46,8 @@ namespace Assets.Scripts.Model
         public static int RaidProbability { get; private set; }
         public static int RaidProbabilityStep { get; set; }
         public static int PoisonProbability { get; set; }
+        public static List<BaseCustomer> NewCustomers { get; set; }
+        public static List<BaseCustomer> AllCustomers { get; set; }
         
 
         static GlobalBar()
