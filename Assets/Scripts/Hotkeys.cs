@@ -17,7 +17,7 @@ public class Hotkeys : MonoBehaviour
         {
             Debug.Log("Hotkey Pressed = F12");
             if (TestCharacter != null)
-                TestCharacter.Anim_Enter();
+                TestCharacter.ManualTrigger();
         }
     }
 }

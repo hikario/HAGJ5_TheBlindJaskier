@@ -33,6 +33,9 @@ public class Character : MonoBehaviour
         if (helper?.Rejected != null)
             _anim.AddClip(helper?.Rejected, "Rejected");
 
+        if (helper?.Exit != null)
+            _anim.AddClip(helper?.Exit, "Exit");
+        
         if (TakePlace != null)
             _anim.AddClip(TakePlace, "TakePlace");
 
@@ -54,24 +57,54 @@ public class Character : MonoBehaviour
         
     }
 
-    public void Anim_Enter()
+    #region Calls for animation
+    public void Anim_EnterToShop()
+    {
+        _anim.Play("Entry");
+    }
+
+    public void Anim_Accepted()
+    {
+        _anim.Play("Accepted");
+        _anim.PlayQueued("TakePlace");
+    }
+
+    public void Anim_Rejected()
+    {
+        _anim.Play("Rejected");
+    }
+
+    public void Anim_Exit()
+    {
+        _anim.Play("GoUp");
+        _anim.PlayQueued("Exit");
+    }
+
+    public void Anim_RaidExit()
+    {
+        _anim.Play("RaidExit");
+    }
+
+    #endregion
+
+
+    public void ManualTrigger()
     {
         //Debug.Log("in Anim_Enter");
         switch (characterState)
         {
             case CharacterStates.AtExitDoor:
-                _anim.Play("Entry");
+                Anim_EnterToShop();
                 characterState = CharacterStates.AtTheCounter;
                 break;
             case CharacterStates.AtTheCounter:
-                _anim.Play("Accepted");
-                _anim.PlayQueued("TakePlace");
+                Anim_Accepted();
                 characterState = CharacterStates.AtPlace;
                 break;
 //            case CharacterStates.AtHidenDoor:
 //                break;
             case CharacterStates.AtPlace:
-                _anim.Play("RaidExit");
+                Anim_RaidExit();
                 characterState = CharacterStates.AtExitDoor;
                 break;
         }

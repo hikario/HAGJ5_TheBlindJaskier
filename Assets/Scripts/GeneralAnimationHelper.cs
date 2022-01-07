@@ -7,6 +7,7 @@ public class GeneralAnimationHelper : MonoBehaviour
     public AnimationClip Entry;
     public AnimationClip Accepted;
     public AnimationClip Rejected;
+    public AnimationClip Exit;
     // Start is called before the first frame update
     void Start()
     {
