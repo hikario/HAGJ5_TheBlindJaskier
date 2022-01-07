@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hotkeys : MonoBehaviour
 {
     public Character TestCharacter = null;
+    public GeneralAnimationHelper TestGenerator = null;
     private void Awake()
     {
         
@@ -16,8 +17,8 @@ public class Hotkeys : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F12))
         {
             Debug.Log("Hotkey Pressed = F12");
-            if (TestCharacter != null)
-                TestCharacter.ManualTrigger();
+            if (TestGenerator != null)
+                TestCharacter = TestGenerator.SpawnZomby();
         }
 
         if (Input.GetKeyDown(KeyCode.F9))

@@ -30,9 +30,17 @@ public class Character : MonoBehaviour
     TimeSpan _emotionDelay = TimeSpan.FromSeconds(5);
     System.Diagnostics.Stopwatch emotionTimer;
 
+    private Queue<Action> jobs = new Queue<Action>();
+
+
+    #region thread magic
+    private int _threadId = 0;
+    bool InvokeRequired { get => _threadId != System.Threading.Thread.CurrentThread.ManagedThreadId; }
+    #endregion
     // Start is called before the first frame update
     void Awake()
     {
+        _threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
         #region Init Animation
         _anim = gameObject.GetComponent<Animation>();
 
@@ -92,34 +100,54 @@ public class Character : MonoBehaviour
             emotionTimer.Stop();
             _currentEmotion.SetActive(false);
         }
+
+        while (jobs.Count > 0)
+            jobs.Dequeue().Invoke();
     }
 
+    void AddJob(Action newJob)
+    {
+        jobs.Enqueue(newJob);
+    }
+    void PlayAction(string action, bool enqueue = false)
+    {
+        if (InvokeRequired)
+        {
+            AddJob(() => PlayAction(action, enqueue));
+            return;
+        }
+
+        if (enqueue)
+            _anim.PlayQueued(action);
+        else
+            _anim.Play(action);
+    }
     #region monving animations
     public void Anim_EnterToShop()
     {
-        _anim.Play("Entry");
+        PlayAction("Entry");
     }
 
     public void Anim_Accepted()
     {
-        _anim.Play("Accepted");
-        _anim.PlayQueued("TakePlace");
+        PlayAction("Accepted");
+        PlayAction("TakePlace", true);
     }
 
     public void Anim_Rejected()
     {
-        _anim.Play("Rejected");
+        PlayAction("Rejected");
     }
 
     public void Anim_Exit()
     {
-        _anim.Play("GoUp");
-        _anim.PlayQueued("Exit");
+        PlayAction("GoUp");
+        PlayAction("Exit", true);
     }
 
     public void Anim_RaidExit()
     {
-        _anim.Play("RaidExit");
+        PlayAction("RaidExit");
     }
 
     #endregion
@@ -142,6 +170,12 @@ public class Character : MonoBehaviour
     {
         if (newEmotion == null) // nothing to set
             return;
+
+        if (InvokeRequired)
+        {
+            AddJob(() => setEmotion(newEmotion));
+            return;
+        }
 
         // disable old emotion if it still shown
         if (_currentEmotion != null && _currentEmotion.activeInHierarchy)
