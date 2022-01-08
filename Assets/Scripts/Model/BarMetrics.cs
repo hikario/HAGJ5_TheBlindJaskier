@@ -62,59 +62,13 @@ namespace Assets.Scripts.Model
             RaidProbabilityStep = 5; // could come from some settings
             _popularity = 50;
             Year = 1919;
-            PossibleCustomerNames = GeneratePossibleNames();
+            PossibleCustomerNames = NamesList.Names;
             UsedCustomerNames = new List<string>();
             OldCustomers = new List<BaseCustomer>();
             ActiveCustomers = new List<BaseCustomer>();
         }
 
-        private static List<string> GeneratePossibleNames()
-        {
-            List<string> names = new List<string>();
-            // Louis Spencer
-            // Cameron Hussain
-            // Jay Marshall
-            // Sam Berry
-            // Patrick Lawson
-            // Chris Young
-            // Issac Brennan
-            // Carter Durham
-            // Bryan Dunn
-            // Omar Lucas
-            // Bethany Cooper
-            // Willow Lowe
-            // Amy Brooks
-            // Ava Nicholson
-            // Matilda Barnes
-            // Aiyana Foreman
-            // Emmalyn Farmer
-            // Allison Bradford
-            // Jacqueline Alston
-            // Teresa Whitley
-            names.Add("L. Spencer");
-            names.Add("C. Hussain");
-            names.Add("J. Marshall");
-            names.Add("S. Berry");
-            names.Add("P. Lawson");
-            names.Add("C. Young");
-            names.Add("I. Brennan");
-            names.Add("C. Durham");
-            names.Add("B. Dunn");
-            names.Add("O. Lucas");
-            names.Add("B. Cooper");
-            names.Add("W. Lowe");
-            names.Add("A. Brooks");
-            names.Add("A. Nicholson");
-            names.Add("M. Barnes");
-            names.Add("A. Foreman");
-            names.Add("E. Farmer");
-            names.Add("A. Bradford");
-            names.Add("J. Alston");
-            names.Add("T. Whitley");
 
-            return names;
-        }
-        
         public static bool IsSourceAvailable (AlcoholSources alcoholSource)
         {
             return SourceAvailability.HasFlag(alcoholSource);
