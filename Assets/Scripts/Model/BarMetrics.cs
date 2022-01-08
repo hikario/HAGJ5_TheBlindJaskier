@@ -51,7 +51,7 @@ namespace Assets.Scripts.Model
         public static List<BaseCustomer> ActiveCustomers { get; set; }
         public static List<ImportantCustomer> SatisfiedImportantCustomerList { get; set; }
         public static BaseCustomer ActiveCustomer { get; set; }
-        public static List<string> PossibleCustomerNames { get; }
+        public static List<string> PossibleCustomerNames { get; set; }
         public static List<string> UsedCustomerNames { get; set; }
         public static bool FirstStrike { get; set; }
         public static bool FinancialConsequences { get; set; }
@@ -59,19 +59,32 @@ namespace Assets.Scripts.Model
 
         static GlobalBar()
         {
+            Reset();
+        }
+
+        public static void Reset()
+        {
             foreach (AlcoholSources t in System.Enum.GetValues(typeof(AlcoholSources)))
                 SourceAvailability |= t;
 
-            RaidProbabilityStep = 5; // could come from some settings
             _popularity = 50;
             Year = 1919;
+            CurrentSource = 0;
+            CurrentQuality = 0;
+            CurrentAlcoholPrices = 0;
             Money = 10000.0M;
             EachDrinkCost = 300.0M;
-            PossibleCustomerNames = NamesList.Names;
-            UsedCustomerNames = new List<string>();
+            SatisfiedImportantCustomers = 0;
+            RaidProbability = 0;
+            RaidProbabilityStep = 5; // could come from some settings
+            PoisonProbability = 0;
+            NewCustomers = new List<BaseCustomer>();
             OldCustomers = new List<BaseCustomer>();
             ActiveCustomers = new List<BaseCustomer>();
             SatisfiedImportantCustomerList = new List<ImportantCustomer>();
+            ActiveCustomer = null;
+            PossibleCustomerNames = new List<string>(NamesList.GetNames());
+            UsedCustomerNames = new List<string>();
             FirstStrike = true;
             FinancialConsequences = false;
         }

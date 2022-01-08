@@ -21,6 +21,6 @@ public class MoneyUpdater : MonoBehaviour
 
     void UpdateMoneyUI()
     {
-        moneyField.text = "$" + Assets.Scripts.Model.GlobalBar.Money.ToString();
+        moneyField.text = "$" + Assets.Scripts.Model.GlobalBar.Money.ToString("N2");
     }
 }

@@ -280,6 +280,11 @@ namespace Assets.Scripts.Model
         
         static NamesList()
         {
+            Names.AddRange(GetNames());
+        }
+
+        public static string[] GetNames()
+        {
             string namesList = "L. Spencer,C. Hussain,J. Marshall,S. Berry,P. Lawson,C. Young,"
                      + "I. Brennan,C. Durham,B. Dunn,O. Lucas,B. Cooper,W. Lowe,"
                      + "A. Brooks,A. Nicholson,M. Barnes,A. Foreman,E. Farmer,A. Bradford,"
@@ -321,7 +326,7 @@ namespace Assets.Scripts.Model
                      + "A. Barrett,P. Rees,I. Morris,T. Gutierrez,L. Monroe,C. Hewitt,E. Berry,"
                      + "E. Gill,C. Thomson,F. Booth,E. Cunningham,M. Anderson,J. Burton,K. Wright,"
                      + "C. Nguyen,E. Pollard,M. Cline,M. Bolton";
-            Names.AddRange(namesList.Split(','));
+            return namesList.Split(',');
         }
 
     }

@@ -19,5 +19,6 @@ public class MenuButtons : MonoBehaviour
     public void StartOver()
     {
         SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+        Assets.Scripts.Model.GlobalBar.Reset();
     }
 }

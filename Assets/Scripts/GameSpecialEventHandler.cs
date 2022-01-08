@@ -18,6 +18,7 @@ public class GameSpecialEventHandler : MonoBehaviour
         EventManager.RegisterEventListener("Poisoning", OnPoisoning);
         EventManager.RegisterEventListener("BeginOfTheNight", ClearUI);
         EventManager.RegisterEventListener("RaidOccurs", CancelPanicButton);
+        EventManager.RegisterEventListener("EndOfTheNight", ReenablePanicButton);
     }
 
     void OnDestroy()
@@ -26,6 +27,7 @@ public class GameSpecialEventHandler : MonoBehaviour
         EventManager.DeregisterEventListener("Poisoning", OnPoisoning);
         EventManager.DeregisterEventListener("BeginOfTheNight", ClearUI);
         EventManager.DeregisterEventListener("RaidOccurs", CancelPanicButton);
+        EventManager.DeregisterEventListener("EndOfTheNight", ReenablePanicButton);
     }
 
     void OnRaid()
@@ -47,5 +49,10 @@ public class GameSpecialEventHandler : MonoBehaviour
     void CancelPanicButton()
     {
         RaidObject.transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    void ReenablePanicButton()
+    {
+        RaidObject.transform.GetChild(0).gameObject.SetActive(true);
     }
 }

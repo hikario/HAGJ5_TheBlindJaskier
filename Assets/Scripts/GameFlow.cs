@@ -20,6 +20,10 @@ public class GameFlow : MonoBehaviour
     private GameObject eveningCanvas;
     [SerializeField]
     private GameObject nightCanvas;
+    [SerializeField]
+    private GameObject LoseScreen;
+    [SerializeField]
+    private GameObject WinScreen;
 
     // Start is called before the first frame update
     void Awake()
@@ -70,6 +74,7 @@ public class GameFlow : MonoBehaviour
                 SendCustomersToList();
                 // Reset Alcohol Choices
                 EventManager.TriggerEvent("PopularityUpdate");
+                CheckForPoverty();
                 break;
         }
     }
@@ -120,6 +125,39 @@ public class GameFlow : MonoBehaviour
             EventManager.TriggerEvent("UpdateMoney");
             Assets.Scripts.Model.GlobalBar.FinancialConsequences = true;
         }
+        else
+        {
+            OnLose();
+        }
+    }
+
+    void CheckForPoverty()
+    {
+        Debug.Log("Checking For Poverty");
+        if(Assets.Scripts.Model.GlobalBar.Money < 1500.00M)
+        {
+            Debug.Log("You're Broke");
+            OnLose();
+        }
+    }
+
+    void OnLose()
+    {
+        Debug.Log("Activating Lose Screen");
+        LoseScreen.SetActive(true);
+    }
+
+    void CheckFor21stAmendment()
+    {
+        if(Assets.Scripts.Model.GlobalBar.Year == 1934)
+        {
+            OnWin();
+        }
+    }
+
+    void OnWin()
+    {
+        WinScreen.SetActive(true);
     }
 
 }

@@ -53,7 +53,7 @@ public class BarFlowManager : MonoBehaviour
 
     IEnumerator TriggerRaid()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         EventManager.TriggerEvent("Raiding");
         EventManager.TriggerEvent("CallPolice");
         Debug.Log("Raiding!");
@@ -62,14 +62,14 @@ public class BarFlowManager : MonoBehaviour
 
     IEnumerator TriggerPoisoning()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         EventManager.TriggerEvent("Poisoning");
         Debug.Log("Poisoning!");
     }
 
     IEnumerator MoveOnWithDay()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(10);
         if (!Assets.Scripts.Model.GlobalBar.IsRaidingNow)
         {
             EventManager.TriggerEvent("TheNightEnds");
