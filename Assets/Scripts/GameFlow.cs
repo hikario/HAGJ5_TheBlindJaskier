@@ -42,6 +42,7 @@ public class GameFlow : MonoBehaviour
                 break;
             case DayState.EVENING:
                 currentState = DayState.NIGHT;
+                EventManager.TriggerEvent("BeginOfTheNight");
                 SetCanvasesForNight();
                 break;
             default:

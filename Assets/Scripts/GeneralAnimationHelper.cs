@@ -15,13 +15,15 @@ public class GeneralAnimationHelper : MonoBehaviour
     {
         EventManager.RegisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         EventManager.RegisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
-
+        EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        
     }
 
     void OnDestroy()
     {
         EventManager.DeregisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
+        EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
     }
 
     void OnCustomerUpdateComplete()
@@ -42,6 +44,11 @@ public class GeneralAnimationHelper : MonoBehaviour
         //    Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Accepted();
         //else
         //    Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Rejected();
+    }
+
+    void OnBeginOfTheNight()
+    {
+
     }
 
 
