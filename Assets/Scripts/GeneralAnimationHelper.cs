@@ -36,21 +36,23 @@ public class GeneralAnimationHelper : MonoBehaviour
     }
     internal void InitNightButtonHelper (Btn_Commit2_Night btn_Commit2_Night)
     {
+        Debug.Log($"InitNightButtonHelper");
         _btn_Commit2_Night = btn_Commit2_Night;
+        OnBeginOfTheNight();
     }
     void OnBeginOfTheNight()
     {
-        Debug.Log($"OnBeginOfTheNight - {_btn_Commit2_Night.gameObject.activeSelf} ");
+        Debug.Log($"OnBeginOfTheNight - {_btn_Commit2_Night?.gameObject?.activeSelf} ");
         if (_btn_Commit2_Night != null)
             _btn_Commit2_Night.gameObject.SetActive(false);
-        Debug.Log($"OnBeginOfTheNight => {_btn_Commit2_Night.gameObject.activeSelf} ");
+        Debug.Log($"OnBeginOfTheNight => {_btn_Commit2_Night?.gameObject?.activeSelf} ");
     }
     void OnATheNightEnds()
     {
-        Debug.Log($"OnATheNightEnds - {_btn_Commit2_Night.gameObject.activeSelf} ");
+        Debug.Log($"OnATheNightEnds - {_btn_Commit2_Night?.gameObject?.activeSelf} ");
         if (_btn_Commit2_Night != null)
             _btn_Commit2_Night.gameObject.SetActive(true);
-        Debug.Log($"OnATheNightEnds => {_btn_Commit2_Night.gameObject.activeSelf} ");
+        Debug.Log($"OnATheNightEnds => {_btn_Commit2_Night?.gameObject?.activeSelf} ");
     }
     void OnCustomerUpdateComplete()
     {
