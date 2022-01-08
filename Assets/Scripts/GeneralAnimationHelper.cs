@@ -49,6 +49,8 @@ public class GeneralAnimationHelper : MonoBehaviour
             }
             random = i;
         }
+        if (MyArmy[random].IsPrefabUsed)
+            Debug.Log("Dublicate prefab!");
         MyArmy[random].IsPrefabUsed = true;
         var character = Instantiate(MyArmy[random], new Vector3(0, 0, 0), Quaternion.identity, transform);
         Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character = character;
@@ -68,6 +70,9 @@ public class GeneralAnimationHelper : MonoBehaviour
     {
         foreach (var cst in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
             cst.UI_Character.Anim_Exit();
+
+        foreach (var cst in MyArmy)
+            cst.IsPrefabUsed = false;
     }
         
     public Character SpawnZomby()

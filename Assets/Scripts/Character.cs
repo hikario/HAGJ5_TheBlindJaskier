@@ -25,13 +25,12 @@ public class Character : MonoBehaviour
     private GameObject _emote_Sad;
 
     private GameObject _currentEmotion;
-
-    public bool IsPrefabUsed = false;
+    public bool IsPrefabUsed { get; set; }
+    
     TimeSpan _emotionDelay = TimeSpan.FromSeconds(5);
     System.Diagnostics.Stopwatch emotionTimer;
 
     private Queue<Action> jobs = new Queue<Action>();
-
 
     #region thread magic
     private int _threadId = 0;
@@ -107,7 +106,6 @@ public class Character : MonoBehaviour
         while (jobs.Count > 0)
             jobs.Dequeue().Invoke();
     }
-
     void AddJob(Action newJob)
     {
         jobs.Enqueue(newJob);
@@ -140,20 +138,17 @@ public class Character : MonoBehaviour
     public void Anim_Rejected()
     {
         PlayAction("Rejected", true);
-        IsPrefabUsed = false;
     }
 
     public void Anim_Exit()
     {
         PlayAction("GoUp", true);
         PlayAction("Exit", true);
-        IsPrefabUsed = false;
     }
 
     public void Anim_RaidExit()
     {
         PlayAction("RaidExit", true);
-        IsPrefabUsed = false;
     }
 
     #endregion
