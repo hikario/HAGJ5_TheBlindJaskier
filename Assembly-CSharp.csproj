@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\MoneyUpdater.cs" />
     <Compile Include="Assets\Scripts\UI\Btn_Commit1_Evening.cs" />
     <Compile Include="Assets\Scripts\UI\Btn_Commit.cs" />
+    <Compile Include="Assets\Scripts\UI\Btn_Commit2_Night.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packs\TextMesh Pro\Shaders\TMPro.cginc" />
