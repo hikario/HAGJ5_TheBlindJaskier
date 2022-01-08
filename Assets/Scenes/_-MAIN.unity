@@ -27614,6 +27614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1794738493}
   - component: {fileID: 1794738494}
+  - component: {fileID: 1794738495}
   m_Layer: 0
   m_Name: Bottles
   m_TagString: Untagged
@@ -27672,6 +27673,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &1794738495
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794738492}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 4be1105d36e6c0f40b5bfb7440d9f9ef, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &1817884464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32352,25 +32369,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -1322783134850959859, guid: 85882d0edc5786d409609f155c7ae431, type: 3}
   m_PrefabInstance: {fileID: 1680745989}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &2077656436
-Animator:
-  serializedVersion: 3
+--- !u!111 &2077656436
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077656435}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2e7aa3676bee6e240b80ea9c1be76bee, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 593e86c82e625994b93f2ede9d481e8b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!65 &2077656441
 BoxCollider:
   m_ObjectHideFlags: 0
