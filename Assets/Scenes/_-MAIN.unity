@@ -1752,7 +1752,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6699,6 +6699,7 @@ GameObject:
   - component: {fileID: 482884003}
   - component: {fileID: 482884005}
   - component: {fileID: 482884004}
+  - component: {fileID: 482884006}
   m_Layer: 0
   m_Name: Amount
   m_TagString: Untagged
@@ -6822,6 +6823,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482884002}
   m_CullTransparentMesh: 1
+--- !u!114 &482884006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482884002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc53dabc2b2dca40a50390e4871730c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &497374285
 GameObject:
   m_ObjectHideFlags: 0
@@ -22721,7 +22734,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26190,6 +26203,7 @@ GameObject:
   - component: {fileID: 1848342537}
   - component: {fileID: 1848342539}
   - component: {fileID: 1848342538}
+  - component: {fileID: 1848342540}
   m_Layer: 0
   m_Name: Amount
   m_TagString: Untagged
@@ -26313,6 +26327,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848342536}
   m_CullTransparentMesh: 1
+--- !u!114 &1848342540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848342536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc53dabc2b2dca40a50390e4871730c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1858281819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27873,7 +27899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1971598624
 RectTransform:
   m_ObjectHideFlags: 0
