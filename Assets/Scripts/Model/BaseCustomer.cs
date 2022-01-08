@@ -87,6 +87,19 @@ namespace Assets.Scripts.Model
             if (expectationMatch >= 0)
                 increaseFanLevel();
             
+            switch(_fanLevel)
+            {
+                case FanLevel.Fan:
+                    UI_Character.Emotion_Happy();
+                    break;
+                case FanLevel.NotFanAlready:
+                    UI_Character.Emotion_Neutral();
+                    break;
+                case FanLevel.Upset:
+                    UI_Character.Emotion_Sad();
+                    break;
+            }
+
             //if expectations exceeded in one, buy 3 drinks total
             int i = expectationMatch + 1;
             if (i < 1) i = 1;
@@ -141,7 +154,9 @@ namespace Assets.Scripts.Model
         private void decreaseFanLevel()
         {
             if (_fanLevel == FanLevel.NotFanAlready || _fanLevel == FanLevel.NotFanYet)
+            {
                 _fanLevel = FanLevel.Upset;
+            }
 
             if (_fanLevel == FanLevel.Fan)
             {
