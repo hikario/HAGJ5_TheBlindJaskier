@@ -29628,6 +29628,7 @@ MonoBehaviour:
   - {fileID: 8805831645571702898, guid: 7d8fed6287ea56c41ad7db3276f05be0, type: 3}
   - {fileID: 4526166460107721593, guid: 7dd457411fe981742872e4e46ba0576c, type: 3}
   - {fileID: 7390188638932159910, guid: 7036b509cedda3d4ebb3ce7285d7137e, type: 3}
+  PoliceArmy: []
 --- !u!1001 &2112917739
 PrefabInstance:
   m_ObjectHideFlags: 0
