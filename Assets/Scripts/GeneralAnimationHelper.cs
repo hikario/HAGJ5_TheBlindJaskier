@@ -20,7 +20,7 @@ public class GeneralAnimationHelper : MonoBehaviour
     {
         EventManager.RegisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         //EventManager.RegisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer); // animation is triggered in CustomerChoiceSelector just before event called.
-        //EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.RegisterEventListener("EndOfTheNight", OnEndOfTheNight);
         EventManager.RegisterEventListener("TheNightEnds", OnATheNightEnds);
         EventManager.RegisterEventListener("CallPolice", OnCallPolice);
@@ -32,7 +32,7 @@ public class GeneralAnimationHelper : MonoBehaviour
     {
         EventManager.DeregisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         //EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
-        //EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.DeregisterEventListener("EndOfTheNight", OnEndOfTheNight);
         EventManager.DeregisterEventListener("TheNightEnds", OnATheNightEnds);
         EventManager.DeregisterEventListener("CallPolice", OnCallPolice);
