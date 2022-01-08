@@ -33078,6 +33078,12 @@ MonoBehaviour:
   - {fileID: 8805831645571702898, guid: 7d8fed6287ea56c41ad7db3276f05be0, type: 3}
   - {fileID: 4526166460107721593, guid: 7dd457411fe981742872e4e46ba0576c, type: 3}
   - {fileID: 7390188638932159910, guid: 7036b509cedda3d4ebb3ce7285d7137e, type: 3}
+  PoliceArmy:
+  - {fileID: 6980023183679134029, guid: 423e3b0f6e46433418720ac7f7b8a654, type: 3}
+  - {fileID: 723176775514560879, guid: e5ec9d39ed0202743a97dfbf8ab8cafa, type: 3}
+  - {fileID: 914661835540799338, guid: 1acda72d414569649942cf95ad8b8cd5, type: 3}
+  - {fileID: 7200222891618699736, guid: 6702db111e93cd640b506f79c85ba278, type: 3}
+  - {fileID: 2266989401218148575, guid: 6039e7160852cb5438b9d0847d6a15c9, type: 3}
 --- !u!1001 &2112917739
 PrefabInstance:
   m_ObjectHideFlags: 0

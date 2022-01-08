@@ -11,6 +11,8 @@ public class GeneralAnimationHelper : MonoBehaviour
     // Start is called before the first frame update
 
     public List<Character> MyArmy;
+    public List<Character> PoliceArmy;
+    private List<Character> _activePolice = null;
 
     private Btn_Commit2_Night _btn_Commit2_Night = null;
 
@@ -22,6 +24,8 @@ public class GeneralAnimationHelper : MonoBehaviour
         EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.RegisterEventListener("EndOfTheNight", OnEndOfTheNight);
         EventManager.RegisterEventListener("TheNightEnds", OnATheNightEnds);
+        EventManager.RegisterEventListener("CallPolice", OnCallPolice);
+        EventManager.RegisterEventListener("PoliceGoDown", OnPoliceGoDown);
     }
 
     void OnDestroy()
@@ -32,28 +36,44 @@ public class GeneralAnimationHelper : MonoBehaviour
         EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.DeregisterEventListener("EndOfTheNight", OnEndOfTheNight);
         EventManager.DeregisterEventListener("TheNightEnds", OnATheNightEnds);
-        
+        EventManager.DeregisterEventListener("CallPolice", OnCallPolice);
+        EventManager.DeregisterEventListener("PoliceGoDown", OnPoliceGoDown);
     }
     internal void InitNightButtonHelper (Btn_Commit2_Night btn_Commit2_Night)
     {
-        Debug.Log($"InitNightButtonHelper");
         _btn_Commit2_Night = btn_Commit2_Night;
         OnBeginOfTheNight();
     }
     void OnBeginOfTheNight()
     {
-        Debug.Log($"OnBeginOfTheNight - {_btn_Commit2_Night?.gameObject?.activeSelf} ");
         if (_btn_Commit2_Night != null)
             _btn_Commit2_Night.gameObject.SetActive(false);
-        Debug.Log($"OnBeginOfTheNight => {_btn_Commit2_Night?.gameObject?.activeSelf} ");
     }
     void OnATheNightEnds()
     {
-        Debug.Log($"OnATheNightEnds - {_btn_Commit2_Night?.gameObject?.activeSelf} ");
         if (_btn_Commit2_Night != null)
             _btn_Commit2_Night.gameObject.SetActive(true);
-        Debug.Log($"OnATheNightEnds => {_btn_Commit2_Night?.gameObject?.activeSelf} ");
     }
+
+    void OnCallPolice ()
+    {
+        if (_activePolice == null)
+            _activePolice = new List<Character>();
+
+        foreach (var cop in PoliceArmy)
+        {
+            var character = Instantiate(cop, new Vector3(0, 0, 0), Quaternion.identity, transform);
+            _activePolice.Add(character);
+            character.Anim_EnterToShop();
+        }
+    }
+
+    void OnPoliceGoDown()
+    {
+        foreach (var cop in _activePolice)
+            cop.Anim_Accepted();
+    }
+
     void OnCustomerUpdateComplete()
     {
         if (Assets.Scripts.Model.GlobalBar.ActiveCustomer == null)
@@ -95,6 +115,12 @@ public class GeneralAnimationHelper : MonoBehaviour
     {
         foreach (var cst in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
             cst.UI_Character.Anim_Exit();
+
+        if (_activePolice != null)
+            foreach (var cop in _activePolice)
+                cop.Anim_Exit();
+
+        _activePolice.Clear();
 
         foreach (var cst in MyArmy)
             cst.IsPrefabUsed = false;
