@@ -25,23 +25,30 @@ public class BarFlowManager : MonoBehaviour
         Assets.Scripts.Model.GlobalBar.IsRaidingNow = isRaiding;
         Assets.Scripts.Model.GlobalBar.IsPoisoningNow = isPoisoning;
         // Have all the customers drink
+        int popularity = 0;
         foreach (Assets.Scripts.Model.BaseCustomer customer in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
         {
+            ++popularity;
+
             //customer handle expectations
             // check for raiding; raise raid event if so
             // check for poisoning; raise poisoning event if so
-            customer.ProcessExpectation(Assets.Scripts.Model.GlobalBar.CurrentQuality, Assets.Scripts.Model.GlobalBar.CurrentAlcoholPrices);
-
-            if (isRaiding)
-            {
-                StartCoroutine(TriggerRaid());
-            }
-            else if(isPoisoning)
-            {
-                StartCoroutine(TriggerPoisoning());
-            }
-            StartCoroutine(MoveOnWithDay());
+            int exp = customer.ProcessExpectation(Assets.Scripts.Model.GlobalBar.CurrentQuality, Assets.Scripts.Model.GlobalBar.CurrentAlcoholPrices);
+            if (exp >= 0)
+                popularity += exp;
         }
+
+        Assets.Scripts.Model.GlobalBar.Popularity = popularity;
+
+        if (isRaiding)
+        {
+            StartCoroutine(TriggerRaid());
+        }
+        else if (isPoisoning)
+        {
+            StartCoroutine(TriggerPoisoning());
+        }
+        StartCoroutine(MoveOnWithDay());
     }
 
     IEnumerator TriggerRaid()
