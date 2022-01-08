@@ -13997,7 +13997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 543dd38b901d3554cbde09107d581a9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -37.93083
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 543dd38b901d3554cbde09107d581a9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14036,9 +14036,10 @@ Animation:
   m_GameObject: {fileID: 1104612825}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 3b640fc6f9ee1394f91959fffcfed78e, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: eb847cf03cac08a45bfb7b63d8d8ab73, type: 2}
+  - {fileID: 7400000, guid: 3b640fc6f9ee1394f91959fffcfed78e, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
