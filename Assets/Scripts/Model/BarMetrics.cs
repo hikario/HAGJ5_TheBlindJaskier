@@ -91,27 +91,26 @@ namespace Assets.Scripts.Model
             // Allison Bradford
             // Jacqueline Alston
             // Teresa Whitley
-            names.Add("Louis Spencer");
-            names.Add("Cameron Hussain");
-            names.Add("Jay Marshall");
-            names.Add("Sam Berry");
-            names.Add("Patrick Lawson");
-            names.Add("Chris Young");
-            names.Add("Issac Brennan");
-            names.Add("Carter Durham");
-            names.Add("Bryan Dunn");
-            names.Add("Omar Lucas");
-            //////////
-            names.Add("Bethany Cooper");
-            names.Add("Willow Lowe");
-            names.Add("Amy Brooks");
-            names.Add("Ava Nicholson");
-            names.Add("Matilda Barnes");
-            names.Add("Aiyana Foreman");
-            names.Add("Emmalyn Farmer");
-            names.Add("Allison Bradford");
-            names.Add("Jacqueline Alston");
-            names.Add("Teresa Whitley");
+            names.Add("L. Spencer");
+            names.Add("C. Hussain");
+            names.Add("J. Marshall");
+            names.Add("S. Berry");
+            names.Add("P. Lawson");
+            names.Add("C. Young");
+            names.Add("I. Brennan");
+            names.Add("C. Durham");
+            names.Add("B. Dunn");
+            names.Add("O. Lucas");
+            names.Add("B. Cooper");
+            names.Add("W. Lowe");
+            names.Add("A. Brooks");
+            names.Add("A. Nicholson");
+            names.Add("M. Barnes");
+            names.Add("A. Foreman");
+            names.Add("E. Farmer");
+            names.Add("A. Bradford");
+            names.Add("J. Alston");
+            names.Add("T. Whitley");
 
             return names;
         }
@@ -140,8 +139,25 @@ namespace Assets.Scripts.Model
             // All settings will be available from Bar
             decimal calculatedMoney = 0.0M;
             // change PoisonProbability base on type and quality
+            PoisonProbability = CalculatePoisoningProbability();
             // do some calculation base on input parametes and save moneys
             Money = calculatedMoney;
+        }
+
+        private static int CalculatePoisoningProbability()
+        {
+            if(CurrentSource == AlcoholSources.Detroit)
+            {
+                return 0;
+            }
+            else if(CurrentSource == AlcoholSources.Mafia)
+            {
+                return 10;
+            }
+            else
+            {
+                return 25;
+            }
         }
 
         public static void OnCustomerByDrink()

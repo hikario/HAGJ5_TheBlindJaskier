@@ -28,6 +28,15 @@ public class GameFlow : MonoBehaviour
         morningCanvas.SetActive(true);
         eveningCanvas.SetActive(false);
         nightCanvas.SetActive(false);
+
+        // EventManager.RegisterEventListener("CustomersVacated", SendCustomersToList);
+        // EventManager.RegisterEventListener("EndOfTheNight", Test);
+    }
+
+    void OnDestroy()
+    {
+        // EventManager.DeregisterEventListener("CustomersVacated", SendCustomersToList);
+        // EventManager.RegisterEventListener("EndOfTheNight", Test);
     }
     
     public void ProgressDay()
@@ -35,20 +44,28 @@ public class GameFlow : MonoBehaviour
         switch(currentState)
         {
             case DayState.MORNING:
+                // Moving from morning to evening
+                // Pay for alcohol, load up customers lists
                 currentState = DayState.EVENING;
                 SetCanvasesForEvening();
                 EventManager.TriggerEvent("GenerateCustomers");
                 Assets.Scripts.Model.GlobalBar.BuyAlchohol();
                 break;
             case DayState.EVENING:
+                // All customers have been checked
+                // Have Night stuff play out
                 currentState = DayState.NIGHT;
                 EventManager.TriggerEvent("BeginOfTheNight");
                 SetCanvasesForNight();
                 break;
             default:
+                // Update popularity, update customers lists
+                EventManager.TriggerEvent("EndOfTheNight");
                 currentState = DayState.MORNING;
                 ProgressYear();
                 SetCanvasesForMorning();
+                SendCustomersToList();
+                // Reset Alcohol Choices
                 EventManager.TriggerEvent("PopularityUpdate");
                 break;
         }
@@ -78,4 +95,16 @@ public class GameFlow : MonoBehaviour
         Assets.Scripts.Model.GlobalBar.Year = Assets.Scripts.Model.GlobalBar.Year + 1;
         EventManager.TriggerEvent("YearChanged");
     }
+
+    void SendCustomersToList()
+    {
+        Assets.Scripts.Model.GlobalBar.OldCustomers = Assets.Scripts.Model.GlobalBar.ActiveCustomers;
+        Assets.Scripts.Model.GlobalBar.ActiveCustomers.Clear();
+    }
+
+    void Test()
+    {
+        Debug.Log("Received OnEndOfTheNight Event");
+    }
+
 }
