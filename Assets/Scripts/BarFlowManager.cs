@@ -25,7 +25,7 @@ public class BarFlowManager : MonoBehaviour
         Assets.Scripts.Model.GlobalBar.IsRaidingNow = isRaiding;
         Assets.Scripts.Model.GlobalBar.IsPoisoningNow = isPoisoning;
         // Have all the customers drink
-        int popularity = 0;
+        int popularity = Assets.Scripts.Model.GlobalBar.Popularity;
         foreach (Assets.Scripts.Model.BaseCustomer customer in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
         {
             ++popularity;
@@ -63,6 +63,8 @@ public class BarFlowManager : MonoBehaviour
     IEnumerator TriggerPoisoning()
     {
         yield return new WaitForSeconds(5);
+        int popularity = Assets.Scripts.Model.GlobalBar.Popularity;
+        Assets.Scripts.Model.GlobalBar.Popularity = popularity - 30;
         EventManager.TriggerEvent("Poisoning");
         Debug.Log("Poisoning!");
     }

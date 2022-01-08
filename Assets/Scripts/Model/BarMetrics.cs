@@ -72,7 +72,7 @@ namespace Assets.Scripts.Model
             CurrentSource = 0;
             CurrentQuality = 0;
             CurrentAlcoholPrices = 0;
-            Money = 10000.0M;
+            Money = 12500.0M;
             EachDrinkCost = 300.0M;
             SatisfiedImportantCustomers = 0;
             RaidProbability = 0;
@@ -145,7 +145,7 @@ namespace Assets.Scripts.Model
             }
             else if(CurrentQuality == AlcoholQualityes.High)
             {
-                calculatedMoney = calculatedMoney*1.25M;
+                calculatedMoney = calculatedMoney*1.5M;
             }
 
             if (DoublePriceNextYear)
@@ -184,7 +184,7 @@ namespace Assets.Scripts.Model
         private static int CalculatePoisoningProbability()
         {
 
-            if (Assets.Scripts.Model.GlobalBar.Year == 1925 || Assets.Scripts.Model.GlobalBar.Year == 1930)
+            if (Assets.Scripts.Model.GlobalBar.Year == 1920 || Assets.Scripts.Model.GlobalBar.Year == 1925 || Assets.Scripts.Model.GlobalBar.Year == 1930)
                 return 100;
 
             if (CurrentSource == AlcoholSources.Detroit)
@@ -223,7 +223,7 @@ namespace Assets.Scripts.Model
 
         public static int CountOfSoldDrinks { get => _countOfSoldDrinks; }
 
-        public static bool IsRaidingNow 
+        public static bool IsRaidingNow
         {
             get => _isRaidingNow;
             set
@@ -238,8 +238,8 @@ namespace Assets.Scripts.Model
                 }
             }
         }
-        public static bool IsPoisoningNow 
-        { 
+        public static bool IsPoisoningNow
+        {
             get => _isPoisoningNow;
             set
             {
