@@ -80,6 +80,10 @@
     <Compile Include="Assets\Scripts\Hotkeys.cs" />
     <Compile Include="Assets\Scripts\Model\PasswordDictionary.cs" />
     <Compile Include="Assets\Scripts\BarFlowManager.cs" />
+    <Compile Include="Assets\Scripts\Model\NamesList.cs" />
+    <Compile Include="Assets\Scripts\MoneyUpdater.cs" />
+    <Compile Include="Assets\Scripts\UI\Btn_Commit1_Evening.cs" />
+    <Compile Include="Assets\Scripts\UI\Btn_Commit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packs\TextMesh Pro\Shaders\TMPro.cginc" />
