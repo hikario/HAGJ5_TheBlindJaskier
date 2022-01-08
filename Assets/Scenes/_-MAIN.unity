@@ -8128,11 +8128,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Enya Oreshkin - \nIgor Oreshkin - \nHikari Oishi - \nCesar Polanco - \n\nMusic
-    - \"Blackbottom Stomp\" by Jelly Roll Morton\n\nArt - \"1920s Butterick Autumn
-    1924 Quarterly Sewing Pattern Catalog 84\"\n     Customers - Men from various
-    fashion magazines from the period\n     Photo of 1920 maid found on Pinterest.\r\n    
-    Speakeasy secret door illustration - Fanny Brice Goucho"
+  m_text: "Enya Oreshkin - 3D Art, Animations, Concepts, Set Dressing, and Lighting\nIgor
+    Oreshkin - Programming\nHikari Oishi - 3D Art, Animations, and Level Design\nCesar
+    Polanco - Programming\n\nMusic - \"Blackbottom Stomp\" by Jelly Roll Morton\n\nArt
+    - \"1920s Butterick Autumn 1924 Quarterly Sewing Pattern Catalog 84\"\n     Customers
+    - Men from various fashion magazines from the period\n     Photo of 1920s maid
+    illustration found on Pinterest\n     Speakeasy secret door illustration - Fanny
+    Brice Goucho"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e61a2d25622076b428f7f641ad22e9b4, type: 2}
   m_sharedMaterial: {fileID: -6020667836649061896, guid: e61a2d25622076b428f7f641ad22e9b4, type: 2}
@@ -8159,8 +8161,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.4
-  m_fontSizeBase: 41.4
+  m_fontSize: 45.3
+  m_fontSizeBase: 45.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -25196,7 +25198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1612118303
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25227,7 +25229,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612118302}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
