@@ -98,8 +98,14 @@ public class GameFlow : MonoBehaviour
 
     void SendCustomersToList()
     {
+        //forget about upset customers.
+        Assets.Scripts.Model.GlobalBar.ActiveCustomers.RemoveAll(cust => cust.DontWantToReturn());
+
+        // our active customer become old customers
         Assets.Scripts.Model.GlobalBar.OldCustomers = Assets.Scripts.Model.GlobalBar.ActiveCustomers;
-        Assets.Scripts.Model.GlobalBar.ActiveCustomers.Clear();
+
+        // and use fresh list for next active customer
+        Assets.Scripts.Model.GlobalBar.ActiveCustomers = new List<Assets.Scripts.Model.BaseCustomer>();
     }
 
     void Test()
