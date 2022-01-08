@@ -20379,6 +20379,8 @@ MonoBehaviour:
   morningCanvas: {fileID: 1684892408}
   eveningCanvas: {fileID: 884809866}
   nightCanvas: {fileID: 1971598623}
+  LoseScreen: {fileID: 1348478084}
+  WinScreen: {fileID: 177892216}
 --- !u!4 &1331358071
 Transform:
   m_ObjectHideFlags: 0
@@ -30047,7 +30049,7 @@ MonoBehaviour:
   averageCustomerQuantity: 10
   highCustomerQuantity: 20
   yearSetForImportantSpawn: 5
-  chanceToSpawnPolice: 1
+  chanceToSpawnPolice: 0
 --- !u!4 &1969131438
 Transform:
   m_ObjectHideFlags: 0
