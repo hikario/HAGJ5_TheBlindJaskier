@@ -31,7 +31,7 @@ public class Character : MonoBehaviour
     System.Diagnostics.Stopwatch emotionTimer;
 
     private Queue<Action> jobs = new Queue<Action>();
-
+    bool _exited = false;
     #region thread magic
     private int _threadId = 0;
     bool InvokeRequired { get => _threadId != System.Threading.Thread.CurrentThread.ManagedThreadId; }
@@ -137,18 +137,31 @@ public class Character : MonoBehaviour
 
     public void Anim_Rejected()
     {
+        if (_exited)
+            return;
+        _exited = true;
         PlayAction("Rejected", true);
+        AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
     }
 
     public void Anim_Exit()
     {
+        if (_exited)
+            return;
+        _exited = true;
+
         PlayAction("GoUp", true);
         PlayAction("Exit", true);
+        AddJob(() => UnityEngine.Object.Destroy(gameObject,15f));
     }
 
     public void Anim_RaidExit()
     {
+        if (_exited)
+            return;
+        _exited = true;
         PlayAction("RaidExit", true);
+        AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
     }
 
     #endregion
