@@ -32,14 +32,18 @@ public class ActiveCustomerTracker : MonoBehaviour
         EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", UpdateToNextActiveCustomer);
     }
 
+    // this called once at very start
     void SetActiveCustomer()
     {
         CompletedPrompt.SetActive(false);
         PasswordPrompt.SetActive(true);
-        if (Assets.Scripts.Model.GlobalBar.NewCustomers.Count > customerNumber)
+        if (Assets.Scripts.Model.GlobalBar.NewCustomers.Count <= customerNumber)
         {
-            currentCustomer = Assets.Scripts.Model.GlobalBar.NewCustomers[customerNumber];
+            Debug.LogError("Expected at list one customer create in the list!");
+            return;
         }
+
+        currentCustomer = Assets.Scripts.Model.GlobalBar.NewCustomers[customerNumber];
         ++customerNumber;
         Assets.Scripts.Model.GlobalBar.ActiveCustomer = currentCustomer;
         customerName.text = currentCustomer.Name;

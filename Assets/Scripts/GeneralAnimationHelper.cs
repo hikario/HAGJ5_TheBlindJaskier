@@ -11,16 +11,38 @@ public class GeneralAnimationHelper : MonoBehaviour
     // Start is called before the first frame update
 
     public List<Character> MyArmy;
-    void Start()
+    void Awake()
     {
-        
+        EventManager.RegisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
+        EventManager.RegisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        
+        EventManager.DeregisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
+        EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
     }
+
+    void OnCustomerUpdateComplete()
+    {
+        if (Assets.Scripts.Model.GlobalBar.ActiveCustomer == null)
+            return;
+
+        var character = Instantiate(MyArmy[0], new Vector3(0, 0, 0), Quaternion.identity, transform);
+        Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character = character;
+        Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_EnterToShop();
+    }
+
+    //
+    void OnUpdateToNextActiveCustomer()
+    {
+        if (Assets.Scripts.Model.GlobalBar.ActiveCustomer.AllowedToEnter)
+            Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Accepted();
+        else
+            Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Rejected();
+    }
+
 
     public Character SpawnZomby()
     {

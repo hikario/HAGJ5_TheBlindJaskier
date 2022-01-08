@@ -125,29 +125,29 @@ public class Character : MonoBehaviour
     #region monving animations
     public void Anim_EnterToShop()
     {
-        PlayAction("Entry");
+        PlayAction("Entry", true);
     }
 
     public void Anim_Accepted()
     {
-        PlayAction("Accepted");
+        PlayAction("Accepted", true);
         PlayAction("TakePlace", true);
     }
 
     public void Anim_Rejected()
     {
-        PlayAction("Rejected");
+        PlayAction("Rejected", true);
     }
 
     public void Anim_Exit()
     {
-        PlayAction("GoUp");
+        PlayAction("GoUp", true);
         PlayAction("Exit", true);
     }
 
     public void Anim_RaidExit()
     {
-        PlayAction("RaidExit");
+        PlayAction("RaidExit", true);
     }
 
     #endregion

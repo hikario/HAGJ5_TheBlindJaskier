@@ -21,6 +21,11 @@ public class YearSetter : MonoBehaviour
 
     void UpdateYear()
     {
+        //if (Assets.Scripts.Model.GlobalBar.Year == 1922)
+        //    Assets.Scripts.Model.GlobalBar.SourceAvailability = Assets.Scripts.Model.GlobalBar.AlcoholSources.Moonshine | Assets.Scripts.Model.GlobalBar.AlcoholSources.Mafia;
+        //else
+        //    Assets.Scripts.Model.GlobalBar.SourceAvailability = Assets.Scripts.Model.GlobalBar.AlcoholSources.Detroit | Assets.Scripts.Model.GlobalBar.AlcoholSources.Moonshine | Assets.Scripts.Model.GlobalBar.AlcoholSources.Mafia;
+
         textField.text = Assets.Scripts.Model.GlobalBar.Year.ToString();
     }
     
