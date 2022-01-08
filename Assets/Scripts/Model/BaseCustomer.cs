@@ -104,7 +104,7 @@ namespace Assets.Scripts.Model
             int i = expectationMatch + 1;
             if (i < 1) i = 1;
             if (i > 3) i = 3;
-            while (--i > 0)
+            while (i-- > 0)
                 BuyExtraDrink();
 
             return expectationMatch;

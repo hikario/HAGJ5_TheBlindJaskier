@@ -29,14 +29,7 @@ public class GameFlow : MonoBehaviour
         eveningCanvas.SetActive(false);
         nightCanvas.SetActive(false);
 
-        // EventManager.RegisterEventListener("CustomersVacated", SendCustomersToList);
-        // EventManager.RegisterEventListener("EndOfTheNight", Test);
-    }
-
-    void OnDestroy()
-    {
-        // EventManager.DeregisterEventListener("CustomersVacated", SendCustomersToList);
-        // EventManager.RegisterEventListener("EndOfTheNight", Test);
+        EventManager.TriggerEvent("UpdateMoney");
     }
     
     public void ProgressDay()
@@ -50,6 +43,7 @@ public class GameFlow : MonoBehaviour
                 SetCanvasesForEvening();
                 EventManager.TriggerEvent("GenerateCustomers");
                 Assets.Scripts.Model.GlobalBar.BuyAlchohol();
+                EventManager.TriggerEvent("UpdateMoney");
                 break;
             case DayState.EVENING:
                 // All customers have been checked
@@ -57,13 +51,16 @@ public class GameFlow : MonoBehaviour
                 currentState = DayState.NIGHT;
                 EventManager.TriggerEvent("BeginOfTheNight");
                 SetCanvasesForNight();
+                EventManager.TriggerEvent("UpdateMoney");
                 break;
             default:
                 // Update popularity, update customers lists
+                Assets.Scripts.Model.GlobalBar.OnDayChange();
                 EventManager.TriggerEvent("EndOfTheNight");
                 currentState = DayState.MORNING;
                 ProgressYear();
                 SetCanvasesForMorning();
+                EventManager.TriggerEvent("UpdateMoney");
                 SendCustomersToList();
                 // Reset Alcohol Choices
                 EventManager.TriggerEvent("PopularityUpdate");

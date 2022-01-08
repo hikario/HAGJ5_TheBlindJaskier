@@ -21,6 +21,9 @@ public class BarFlowManager : MonoBehaviour
         // Calculate if raid or poisoning is occurring
         bool isRaiding = GetRaidStatus();
         bool isPoisoning = GetPoisoningStatus();
+        // Pass that info to the global bar
+        Assets.Scripts.Model.GlobalBar.IsRaidingNow = isRaiding;
+        Assets.Scripts.Model.GlobalBar.IsPoisoningNow = isPoisoning;
         // Have all the customers drink
         foreach (Assets.Scripts.Model.BaseCustomer customer in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
         {

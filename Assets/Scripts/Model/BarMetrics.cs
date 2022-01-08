@@ -62,6 +62,8 @@ namespace Assets.Scripts.Model
             RaidProbabilityStep = 5; // could come from some settings
             _popularity = 50;
             Year = 1919;
+            Money = 10000.0M;
+            EachDrinkCost = 300.0M;
             PossibleCustomerNames = NamesList.Names;
             UsedCustomerNames = new List<string>();
             OldCustomers = new List<BaseCustomer>();
@@ -92,10 +94,38 @@ namespace Assets.Scripts.Model
         {
             // All settings will be available from Bar
             decimal calculatedMoney = 0.0M;
+            // Cost is set per source:
+            // Moonshine is $2k
+            // Mafia is $4.5k
+            // Importing is $8k
+            if (CurrentSource == AlcoholSources.Moonshine)
+            {
+                calculatedMoney = 2000.0M;
+            }
+            else if(CurrentSource == AlcoholSources.Mafia)
+            {
+                calculatedMoney = 4500.0M;
+            }
+            else
+            {
+                calculatedMoney = 8000.0M;
+            }
+            // Quality makes drinks more expensive to buy
+            // Original Quality is 1.25x
+            // Diluted Quality is 1.0x
+            // Thinned Quality is .75x
+            if (CurrentQuality == AlcoholQualityes.Low)
+            {
+                calculatedMoney = calculatedMoney*0.75M;
+            }
+            else if(CurrentQuality == AlcoholQualityes.High)
+            {
+                calculatedMoney = calculatedMoney*1.25M;
+            }
+            Money = Money - calculatedMoney;
+
             // change PoisonProbability base on type and quality
             PoisonProbability = CalculatePoisoningProbability();
-            // do some calculation base on input parametes and save moneys
-            Money = calculatedMoney;
         }
 
         private static int CalculatePoisoningProbability()
