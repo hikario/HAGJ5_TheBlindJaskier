@@ -17,7 +17,12 @@ class Btn_Commit2_Night : MonoBehaviour
         
         _btn = GetComponent<Button>();
         _btn.onClick.AddListener(OnClick);
-        EventManager.RegisterEventListener("TheNightEnds", OnATheNightEnds);
+
+        gameObject = GameObject.Find("/Characters (1)");
+        var helper = gameObject.GetComponent<GeneralAnimationHelper>();
+        helper.InitNightButtonHelper(this);
+
+        //EventManager.RegisterEventListener("TheNightEnds", OnATheNightEnds);
     }
     private void Update()
     {
@@ -25,15 +30,15 @@ class Btn_Commit2_Night : MonoBehaviour
     }
     void OnDestroy()
     {
-        EventManager.DeregisterEventListener("TheNightEnds", OnATheNightEnds);
+        //EventManager.DeregisterEventListener("TheNightEnds", OnATheNightEnds);
     }
     void OnEnable()
     {
-        _btn.interactable = false;
+        //_btn.interactable = false;
     }
     void OnATheNightEnds()
     {
-        _btn.interactable = true;
+        //_btn.interactable = true;
     }
 
 

@@ -11,14 +11,17 @@ public class GeneralAnimationHelper : MonoBehaviour
     // Start is called before the first frame update
 
     public List<Character> MyArmy;
-    
+
+    private Btn_Commit2_Night _btn_Commit2_Night = null;
+
     void Awake()
     {
         EventManager.RegisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         //EventManager.RegisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer); // animation is triggered in CustomerChoiceSelector just before event called.
         //EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.RegisterEventListener("EndOfTheNight", OnEndOfTheNight);
-        
+        EventManager.RegisterEventListener("TheNightEnds", OnATheNightEnds);
     }
 
     void OnDestroy()
@@ -26,9 +29,29 @@ public class GeneralAnimationHelper : MonoBehaviour
         EventManager.DeregisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         //EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
         //EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.DeregisterEventListener("EndOfTheNight", OnEndOfTheNight);
+        EventManager.DeregisterEventListener("TheNightEnds", OnATheNightEnds);
+        
     }
-
+    internal void InitNightButtonHelper (Btn_Commit2_Night btn_Commit2_Night)
+    {
+        _btn_Commit2_Night = btn_Commit2_Night;
+    }
+    void OnBeginOfTheNight()
+    {
+        Debug.Log($"OnBeginOfTheNight - {_btn_Commit2_Night.gameObject.activeSelf} ");
+        if (_btn_Commit2_Night != null)
+            _btn_Commit2_Night.gameObject.SetActive(false);
+        Debug.Log($"OnBeginOfTheNight => {_btn_Commit2_Night.gameObject.activeSelf} ");
+    }
+    void OnATheNightEnds()
+    {
+        Debug.Log($"OnATheNightEnds - {_btn_Commit2_Night.gameObject.activeSelf} ");
+        if (_btn_Commit2_Night != null)
+            _btn_Commit2_Night.gameObject.SetActive(true);
+        Debug.Log($"OnATheNightEnds => {_btn_Commit2_Night.gameObject.activeSelf} ");
+    }
     void OnCustomerUpdateComplete()
     {
         if (Assets.Scripts.Model.GlobalBar.ActiveCustomer == null)
