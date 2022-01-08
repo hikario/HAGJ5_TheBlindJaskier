@@ -102,6 +102,7 @@ public class GameFlow : MonoBehaviour
         dayNumber = dayNumber + 1;
         Assets.Scripts.Model.GlobalBar.Year = Assets.Scripts.Model.GlobalBar.Year + 1;
         EventManager.TriggerEvent("YearChanged");
+        CheckFor21stAmendment();
     }
 
     void SendCustomersToList()

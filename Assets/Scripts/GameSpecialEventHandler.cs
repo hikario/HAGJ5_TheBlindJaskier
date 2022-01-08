@@ -8,6 +8,10 @@ public class GameSpecialEventHandler : MonoBehaviour
     private GameObject RaidObject;
     [SerializeField]
     private GameObject PoisonObject;
+    [SerializeField]
+    private GameObject RaidMessage;
+    [SerializeField]
+    private GameObject RaidPanicMessage;
 
     void Awake()
     {
@@ -33,6 +37,8 @@ public class GameSpecialEventHandler : MonoBehaviour
     void OnRaid()
     {
         RaidObject.SetActive(true);
+        RaidPanicMessage.SetActive(false);
+        RaidMessage.SetActive(true);
     }
 
     void OnPoisoning()
