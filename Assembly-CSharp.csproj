@@ -85,6 +85,9 @@
     <Compile Include="Assets\Scripts\GameFlow.cs" />
     <Compile Include="Assets\Scripts\UI\Btn_Commit.cs" />
     <Compile Include="Assets\Scripts\Hotkeys.cs" />
+    <Compile Include="Assets\Scripts\UI\PanicButton.cs" />
+    <Compile Include="Assets\Scripts\RaidHandler.cs" />
+    <Compile Include="Assets\Scripts\GameSpecialEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packs\TextMesh Pro\Shaders\TMPro.cginc" />
