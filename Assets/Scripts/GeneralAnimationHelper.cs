@@ -120,7 +120,8 @@ public class GeneralAnimationHelper : MonoBehaviour
             foreach (var cop in _activePolice)
                 cop.Anim_Exit();
 
-        _activePolice.Clear();
+        if (_activePolice != null)
+            _activePolice.Clear();
 
         foreach (var cst in MyArmy)
             cst.IsPrefabUsed = false;
