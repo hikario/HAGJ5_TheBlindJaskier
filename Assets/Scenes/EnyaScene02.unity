@@ -2593,7 +2593,7 @@ PrefabInstance:
     - target: {fileID: 8780552841139786454, guid: 72180ffeb17391340a0d79c25e093d16, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b4dd04d01d0e1a4468cc3119ed603cdd, type: 2}
+      objectReference: {fileID: 2100000, guid: e5e849621037ed64e8767a3ac2dcc560, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72180ffeb17391340a0d79c25e093d16, type: 3}
 --- !u!4 &160491989 stripped
@@ -3184,7 +3184,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8ed95c0e0de813a4fa4d3d73976d3b7f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 37a4fcbcf699d2a4ea12bee0de8f83fe, type: 2}
+      objectReference: {fileID: 2100000, guid: ca56e25ca73e3644f99681624ea1700a, type: 2}
     - target: {fileID: -7511558181221131132, guid: 8ed95c0e0de813a4fa4d3d73976d3b7f, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -11289,7 +11289,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 946f2a460e165ff42aa753a120247efa, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 37a4fcbcf699d2a4ea12bee0de8f83fe, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c6e4af171981c24797da6be372a925a, type: 2}
     - target: {fileID: 919132149155446097, guid: 946f2a460e165ff42aa753a120247efa, type: 3}
       propertyPath: m_Name
       value: ME_PaintingDoor
@@ -11572,7 +11572,7 @@ PrefabInstance:
     - target: {fileID: 8684768299338836677, guid: 9a7521a03dde1d94b90a3bf6a0bf8719, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 908c42bbe9aec5940b422ba56c70f4ed, type: 2}
+      objectReference: {fileID: 2100000, guid: e5e849621037ed64e8767a3ac2dcc560, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a7521a03dde1d94b90a3bf6a0bf8719, type: 3}
 --- !u!4 &878111665 stripped
@@ -13144,7 +13144,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh56696
+  m_Name: pb_Mesh74510
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17331,6 +17331,8 @@ MonoBehaviour:
   morningCanvas: {fileID: 1684892408}
   eveningCanvas: {fileID: 884809866}
   nightCanvas: {fileID: 1971598623}
+  LoseScreen: {fileID: 0}
+  WinScreen: {fileID: 0}
 --- !u!4 &1331358071
 Transform:
   m_ObjectHideFlags: 0
@@ -19390,7 +19392,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ec5d002f7b091de448a11a15bb0063b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4f8707c627c38d64bb939619e8bc46a3, type: 2}
+      objectReference: {fileID: 2100000, guid: 8c6e4af171981c24797da6be372a925a, type: 2}
     - target: {fileID: -7511558181221131132, guid: ec5d002f7b091de448a11a15bb0063b6, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -21781,7 +21783,7 @@ PrefabInstance:
     - target: {fileID: -932837579802986780, guid: 80096f198b9621f4db2693035243180d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8563cb13f50b6324f9386ba59481d321, type: 2}
+      objectReference: {fileID: 2100000, guid: 908c42bbe9aec5940b422ba56c70f4ed, type: 2}
     - target: {fileID: -932837579802986780, guid: 80096f198b9621f4db2693035243180d, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -26703,7 +26705,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 41a47c38c07e40d41bc3dfbcd31a5c7f, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 37a4fcbcf699d2a4ea12bee0de8f83fe, type: 2}
+      objectReference: {fileID: 2100000, guid: ca56e25ca73e3644f99681624ea1700a, type: 2}
     - target: {fileID: 919132149155446097, guid: 41a47c38c07e40d41bc3dfbcd31a5c7f, type: 3}
       propertyPath: m_Name
       value: ME_SP_SodaTable
