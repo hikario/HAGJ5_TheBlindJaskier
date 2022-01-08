@@ -14325,7 +14325,6 @@ RectTransform:
   m_Children:
   - {fileID: 987243661}
   - {fileID: 1873203270}
-  - {fileID: 1590777615}
   m_Father: {fileID: 1971598624}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24737,10 +24736,10 @@ RectTransform:
   m_GameObject: {fileID: 1590777614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 870879387}
-  m_RootOrder: 2
+  m_Father: {fileID: 1873203270}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29650,6 +29649,7 @@ RectTransform:
   - {fileID: 1007478465}
   - {fileID: 1489023709}
   - {fileID: 2072512842}
+  - {fileID: 1590777615}
   m_Father: {fileID: 870879387}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31020,7 +31020,7 @@ MonoBehaviour:
   averageCustomerQuantity: 10
   highCustomerQuantity: 20
   yearSetForImportantSpawn: 5
-  chanceToSpawnPolice: 0.05
+  chanceToSpawnPolice: 1
 --- !u!4 &1969131438
 Transform:
   m_ObjectHideFlags: 0
