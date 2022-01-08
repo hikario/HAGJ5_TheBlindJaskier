@@ -64,14 +64,32 @@ public class GeneralAnimationHelper : MonoBehaviour
         {
             var character = Instantiate(cop, new Vector3(0, 0, 0), Quaternion.identity, transform);
             _activePolice.Add(character);
-            character.Anim_EnterToShop();
         }
+
+        System.Threading.Tasks.Task.Run(async () =>
+        {
+            foreach (var cop in _activePolice)
+            {
+                cop.Anim_EnterToShop();
+                await System.Threading.Tasks.Task.Delay(700);
+            }
+        });
+
     }
 
     void OnPoliceGoDown()
     {
-        foreach (var cop in _activePolice)
-            cop.Anim_Accepted();
+        if (_activePolice == null || _activePolice.Count == 0)
+            return;
+        
+        System.Threading.Tasks.Task.Run(async () =>
+        {
+            foreach (var cop in _activePolice)
+            {
+                cop.Anim_Accepted();
+                await System.Threading.Tasks.Task.Delay(700);
+            }
+        });
     }
 
     void OnCustomerUpdateComplete()
