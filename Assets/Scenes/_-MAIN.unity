@@ -16623,7 +16623,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh811284
+  m_Name: pb_Mesh701462
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31020,7 +31020,7 @@ MonoBehaviour:
   averageCustomerQuantity: 10
   highCustomerQuantity: 20
   yearSetForImportantSpawn: 5
-  chanceToSpawnPolice: 1
+  chanceToSpawnPolice: 0.05
 --- !u!4 &1969131438
 Transform:
   m_ObjectHideFlags: 0
