@@ -70,8 +70,8 @@ namespace Assets.Scripts.Model
         public BaseCustomer() 
         {
             Password = (PassEnum)Random.Range(0, 2);
-            QualityPreference = QualityPreferenceOriginal = (AlcoholQualityes)Random.Range(0, 3);
-            PricePreference = PricePreferenceOriginal = (AlcoholPrices)Random.Range(0, 3);
+            QualityPreference = QualityPreferenceOriginal = (AlcoholQualityes)Random.Range(1, 3);
+            PricePreference = PricePreferenceOriginal = (AlcoholPrices)Random.Range(1, 3);
         }
 
         //different for each type of customer
@@ -103,7 +103,7 @@ namespace Assets.Scripts.Model
             //if expectations exceeded in one, buy 3 drinks total
             int i = expectationMatch + 1;
             if (i < 1) i = 1;
-            if (i > 3) i = 3;
+            if (i > 2) i = 2;
             while (i-- > 0)
                 BuyExtraDrink();
 

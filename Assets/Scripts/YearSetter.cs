@@ -21,10 +21,10 @@ public class YearSetter : MonoBehaviour
 
     void UpdateYear()
     {
-        //if (Assets.Scripts.Model.GlobalBar.Year == 1922)
-        //    Assets.Scripts.Model.GlobalBar.SourceAvailability = Assets.Scripts.Model.GlobalBar.AlcoholSources.Moonshine | Assets.Scripts.Model.GlobalBar.AlcoholSources.Mafia;
-        //else
-        //    Assets.Scripts.Model.GlobalBar.SourceAvailability = Assets.Scripts.Model.GlobalBar.AlcoholSources.Detroit | Assets.Scripts.Model.GlobalBar.AlcoholSources.Moonshine | Assets.Scripts.Model.GlobalBar.AlcoholSources.Mafia;
+        if (Assets.Scripts.Model.GlobalBar.Year % 5 == 4 )
+                Assets.Scripts.Model.GlobalBar.SourceAvailability = Assets.Scripts.Model.GlobalBar.AlcoholSources.Moonshine | Assets.Scripts.Model.GlobalBar.AlcoholSources.Mafia;
+        else
+            Assets.Scripts.Model.GlobalBar.SourceAvailability = Assets.Scripts.Model.GlobalBar.AlcoholSources.Detroit | Assets.Scripts.Model.GlobalBar.AlcoholSources.Moonshine | Assets.Scripts.Model.GlobalBar.AlcoholSources.Mafia;
 
         Assets.Scripts.Model.GlobalBar.CurrentSource = 0;
         Assets.Scripts.Model.GlobalBar.CurrentAlcoholPrices = 0;

@@ -17,9 +17,10 @@ public class RaidHandler : MonoBehaviour
 
     void OnRaidOccurs()
     {
+        Assets.Scripts.Model.GlobalBar.DoublePriceNextYear = true;
         // Check if SatisfiedImportantCustomers is > 0;
         // Block if so
-        if(Assets.Scripts.Model.GlobalBar.SatisfiedImportantCustomerList.Count > 0)
+        if (Assets.Scripts.Model.GlobalBar.SatisfiedImportantCustomerList.Count > 0)
         {
             Debug.Log("SAVED");
             Assets.Scripts.Model.ImportantCustomer customer = Assets.Scripts.Model.GlobalBar.SatisfiedImportantCustomerList[0];

@@ -55,7 +55,7 @@ namespace Assets.Scripts.Model
         public static List<string> UsedCustomerNames { get; set; }
         public static bool FirstStrike { get; set; }
         public static bool FinancialConsequences { get; set; }
-        
+        public static bool DoublePriceNextYear { get; set; }
 
         static GlobalBar()
         {
@@ -147,6 +147,29 @@ namespace Assets.Scripts.Model
             {
                 calculatedMoney = calculatedMoney*1.25M;
             }
+
+            if (DoublePriceNextYear)
+            {
+                DoublePriceNextYear = false;
+                calculatedMoney *= 2;
+            }
+
+            //1919-1933
+            if (Year > 1922)
+                calculatedMoney *= 1.25M;
+
+            if (Year > 1925)
+                calculatedMoney *= 1.25M;
+
+            if (Year > 1927)
+                calculatedMoney *= 1.25M;
+
+            if (Year > 1929)
+                calculatedMoney *= 1.25M;
+
+            if (Year > 1931)
+                calculatedMoney *= 1.25M;
+
             Money = Money - calculatedMoney;
 
             // change PoisonProbability base on type and quality
@@ -160,7 +183,11 @@ namespace Assets.Scripts.Model
 
         private static int CalculatePoisoningProbability()
         {
-            if(CurrentSource == AlcoholSources.Detroit)
+
+            if (Assets.Scripts.Model.GlobalBar.Year == 1925 || Assets.Scripts.Model.GlobalBar.Year == 1930)
+                return 100;
+
+            if (CurrentSource == AlcoholSources.Detroit)
             {
                 return 0;
             }
