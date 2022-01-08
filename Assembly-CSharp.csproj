@@ -59,25 +59,26 @@
     <Compile Include="Assets\Scripts\ReverseAnimationContext.cs" />
     <Compile Include="Assets\Scripts\Model\ImportantCustomer.cs" />
     <Compile Include="Assets\Scripts\SliderUpdater.cs" />
+    <Compile Include="Assets\Scripts\UI\Btn_AlcSource.cs" />
     <Compile Include="Assets\Scripts\CustomerGenerator.cs" />
     <Compile Include="Assets\Scripts\Model\BaseCustomer.cs" />
     <Compile Include="Assets\Scripts\Model\Generator.cs" />
+    <Compile Include="Assets\Scripts\PasswordManager.cs" />
     <Compile Include="Assets\Scripts\CustomerChoiceSelector.cs" />
+    <Compile Include="Assets\Scripts\UI\Btn_AlcPrice.cs" />
+    <Compile Include="Assets\Scripts\PasswordDictionary.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\GeneralAnimationHelper.cs" />
     <Compile Include="Assets\Scripts\ActiveCustomerTracker.cs" />
     <Compile Include="Assets\Scripts\SetVolume.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\UI\Btn_AlcQuality.cs" />
     <Compile Include="Assets\Scripts\ButtonPropagater.cs" />
     <Compile Include="Assets\Scripts\YearSetter.cs" />
     <Compile Include="Assets\Scripts\CustomerTracker.cs" />
     <Compile Include="Assets\Scripts\Model\CopCustomer.cs" />
     <Compile Include="Assets\Scripts\GameFlow.cs" />
     <Compile Include="Assets\Scripts\Hotkeys.cs" />
-    <Compile Include="Assets\Scripts\UI\Btn_AlcQuality.cs" />
-    <Compile Include="Assets\Scripts\UI\Btn_AlcPrice.cs" />
-    <Compile Include="Assets\Scripts\UI\Btn_AlcSource.cs" />
-    <Compile Include="Assets\Scripts\PasswordManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packs\TextMesh Pro\Shaders\TMPro.cginc" />

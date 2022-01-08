@@ -26227,7 +26227,7 @@ Transform:
   - {fileID: 2497286356661459052}
   - {fileID: 313987887108433185}
   - {fileID: 691815251595689591}
-  - {fileID: 8957040233750643309}
+  - {fileID: 1398842328097044377}
   - {fileID: 4154987133331617086}
   - {fileID: 588100267263131819}
   - {fileID: 660337936101247994}
@@ -26265,7 +26265,7 @@ MonoBehaviour:
   - {fileID: 841838828226704394, guid: 3a38465e214ef154295e829b6360f780, type: 3}
   - {fileID: 1338998798652821271, guid: 5230d0eec9d3f9042b5ff4659d4b6010, type: 3}
   - {fileID: 6505469320883434764, guid: 9f8544119de6c5d4c819a5a45afd924a, type: 3}
-  - {fileID: 596006969028555126, guid: f92b05a124ca3fc40b8777a798b62ea2, type: 3}
+  - {fileID: 4753466553076660386, guid: f92b05a124ca3fc40b8777a798b62ea2, type: 3}
   - {fileID: 2254126892834014444, guid: c878c07fac487c647abc6a70f3ebc120, type: 3}
   - {fileID: 4483437955600883349, guid: e078a7a5f1aa12e45a886ae522eab3e0, type: 3}
   - {fileID: 5901565874030793700, guid: 9c25a823b1b4a3449b076490e5fb9438, type: 3}
@@ -27457,6 +27457,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f92b05a124ca3fc40b8777a798b62ea2, type: 3}
+--- !u!4 &1398842328097044377 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8403802602774122231, guid: f92b05a124ca3fc40b8777a798b62ea2, type: 3}
+  m_PrefabInstance: {fileID: 1398842328097044376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1462150809695065084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28203,11 +28208,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4585b55cd5e3cb0478a27583dc7d1dd9, type: 3}
---- !u!4 &8957040233750643309 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8008634946008118773, guid: f92b05a124ca3fc40b8777a798b62ea2, type: 3}
-  m_PrefabInstance: {fileID: 1398842328097044376}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8980064580559656424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1259825700826413663, guid: 7d8fed6287ea56c41ad7db3276f05be0, type: 3}

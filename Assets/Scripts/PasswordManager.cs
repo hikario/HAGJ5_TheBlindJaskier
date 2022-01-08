@@ -31,16 +31,17 @@ public class PasswordManager : MonoBehaviour
     void UpdatePasswords()
     {
         // Call to password stuff
-        goodPassword.text = "Good Pass";
+        goodPassword.text = Assets.Scripts.Model.PasswordDictionary.GetGoodPassword();
         if(Assets.Scripts.Model.GlobalBar.ActiveCustomer.Password == Assets.Scripts.Model.PassEnum.HasNewPassword)
         {
             // get the same password
-            customerPassword.text = "Good Pass";
+            customerPassword.text = Assets.Scripts.Model.PasswordDictionary.GetGoodPassword();
         }
         else
         {
             // get from bad passwords
-            customerPassword.text = "Bad Pass";
+            int randomIndex = Random.Range(0, 3);
+            customerPassword.text = Assets.Scripts.Model.PasswordDictionary.GetBadPassword(randomIndex);
         }
     }
 

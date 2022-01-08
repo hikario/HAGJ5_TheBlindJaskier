@@ -26,7 +26,7 @@ public class Character : MonoBehaviour
 
     private GameObject _currentEmotion;
 
-
+    public bool IsPrefabUsed = false;
     TimeSpan _emotionDelay = TimeSpan.FromSeconds(5);
     System.Diagnostics.Stopwatch emotionTimer;
 
@@ -140,17 +140,20 @@ public class Character : MonoBehaviour
     public void Anim_Rejected()
     {
         PlayAction("Rejected", true);
+        IsPrefabUsed = false;
     }
 
     public void Anim_Exit()
     {
         PlayAction("GoUp", true);
         PlayAction("Exit", true);
+        IsPrefabUsed = false;
     }
 
     public void Anim_RaidExit()
     {
         PlayAction("RaidExit", true);
+        IsPrefabUsed = false;
     }
 
     #endregion

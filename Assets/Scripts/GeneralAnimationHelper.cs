@@ -11,19 +11,22 @@ public class GeneralAnimationHelper : MonoBehaviour
     // Start is called before the first frame update
 
     public List<Character> MyArmy;
+    
     void Awake()
     {
         EventManager.RegisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
-        EventManager.RegisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
-        EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        //EventManager.RegisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer); // animation is triggered in CustomerChoiceSelector just before event called.
+        //EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        EventManager.RegisterEventListener("EndOfTheNight", OnEndOfTheNight);
         
     }
 
     void OnDestroy()
     {
         EventManager.DeregisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
-        EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
-        EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        //EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
+        //EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
+        EventManager.DeregisterEventListener("EndOfTheNight", OnEndOfTheNight);
     }
 
     void OnCustomerUpdateComplete()
@@ -32,6 +35,21 @@ public class GeneralAnimationHelper : MonoBehaviour
             return;
 
         int random = Random.Range(0, MyArmy.Count);
+        if (MyArmy[random].IsPrefabUsed)
+        {
+            int i = random;
+            while (true)
+            {
+                if (++i >= MyArmy.Count)
+                    i = 0;
+                if (i == random)
+                    break;
+                if (MyArmy[i].IsPrefabUsed == false)
+                    break;
+            }
+            random = i;
+        }
+        MyArmy[random].IsPrefabUsed = true;
         var character = Instantiate(MyArmy[random], new Vector3(0, 0, 0), Quaternion.identity, transform);
         Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character = character;
         Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_EnterToShop();
@@ -46,30 +64,30 @@ public class GeneralAnimationHelper : MonoBehaviour
         //    Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Rejected();
     }
 
-    void OnBeginOfTheNight()
+    void OnEndOfTheNight()
     {
-
+        foreach (var cst in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
+            cst.UI_Character.Anim_Exit();
     }
-
-
+        
     public Character SpawnZomby()
     {
         if (MyArmy?.Count > 0)
         {
-            var character = Instantiate(MyArmy[0], new Vector3(0, 0, 0), Quaternion.identity, transform);
-            System.Threading.Tasks.Task.Run(async () =>
-            {
-                character.Anim_EnterToShop();
-                character.Emotion_Sad();
-                await System.Threading.Tasks.Task.Delay(System.TimeSpan.FromSeconds(6));
-                character.Emotion_Neutral();
-                character.Anim_Accepted();
-                await System.Threading.Tasks.Task.Delay(System.TimeSpan.FromSeconds(8));
-                character.Emotion_Happy();
-            });
             //gameObject.transform
             
-            return character;
+            //{
+            //    character.Anim_EnterToShop();
+            //    character.Emotion_Sad();
+            //    await System.Threading.Tasks.Task.Delay(System.TimeSpan.FromSeconds(6));
+            //    character.Emotion_Neutral();
+            //    character.Anim_Accepted();
+            //    await System.Threading.Tasks.Task.Delay(System.TimeSpan.FromSeconds(8));
+            //    character.Emotion_Happy();
+            //});
+            ////gameObject.transform
+            //
+            //return character;
         }
         return null;
     }

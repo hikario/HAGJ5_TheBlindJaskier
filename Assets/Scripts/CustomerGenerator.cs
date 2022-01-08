@@ -82,8 +82,6 @@ public class CustomerGenerator : MonoBehaviour
         int index = 0;
         // Customer List
         Assets.Scripts.Model.BaseCustomer[] customers = new Assets.Scripts.Model.BaseCustomer[quantityToGenerate];
-        Debug.Log(spawnedImportant.ToString());
-        Debug.Log(currentChanceToSpawnImportant);
         // Have we hit the cap on how many years it should be per special?
         if (yearsSinceReset == yearSetForImportantSpawn)
         {
