@@ -29998,7 +29998,7 @@ MonoBehaviour:
   averageCustomerQuantity: 10
   highCustomerQuantity: 20
   yearSetForImportantSpawn: 5
-  chanceToSpawnPolice: 0.05
+  chanceToSpawnPolice: 1
 --- !u!4 &1969131438
 Transform:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class GeneralAnimationHelper : MonoBehaviour
         EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.RegisterEventListener("EndOfTheNight", OnEndOfTheNight);
         EventManager.RegisterEventListener("TheNightEnds", OnATheNightEnds);
+        EventManager.RegisterEventListener("RaidExit", OnRaidExit);
         EventManager.RegisterEventListener("CallPolice", OnCallPolice);
         EventManager.RegisterEventListener("SendPoliceHome", OnSendPoliceHome);
         EventManager.RegisterEventListener("PoliceGoDown", OnPoliceGoDown);
@@ -35,6 +36,7 @@ public class GeneralAnimationHelper : MonoBehaviour
         EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.DeregisterEventListener("EndOfTheNight", OnEndOfTheNight);
         EventManager.DeregisterEventListener("TheNightEnds", OnATheNightEnds);
+        EventManager.DeregisterEventListener("RaidExit", OnRaidExit);
         EventManager.DeregisterEventListener("CallPolice", OnCallPolice);
         EventManager.DeregisterEventListener("SendPoliceHome", OnSendPoliceHome);
         EventManager.DeregisterEventListener("PoliceGoDown", OnPoliceGoDown);
@@ -157,6 +159,15 @@ public class GeneralAnimationHelper : MonoBehaviour
 
         if (_activePolice != null)
             _activePolice.Clear();
+
+        foreach (var cst in MyArmy)
+            cst.IsPrefabUsed = false;
+    }
+
+    void OnRaidExit()
+    {
+        foreach (var cst in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
+            cst.UI_Character.Anim_RaidExit();
 
         foreach (var cst in MyArmy)
             cst.IsPrefabUsed = false;

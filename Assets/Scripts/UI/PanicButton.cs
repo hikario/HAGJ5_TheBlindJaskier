@@ -14,7 +14,8 @@ public class PanicButton : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
+        panicButton = gameObject.GetComponent<Button>();
+        panicButton.onClick.AddListener(OnClick);
     }
 
     void OnClick()
@@ -28,6 +29,7 @@ public class PanicButton : MonoBehaviour
         RaidMessage.SetActive(false);
         PanicPressedMessage.SetActive(true);
         // Send Police Down
+        EventManager.TriggerEvent("RaidExit");
         EventManager.TriggerEvent("PoliceGoDown");
         EventManager.TriggerEvent("TheNightEnds");
     }
