@@ -12,6 +12,8 @@ public class GameSpecialEventHandler : MonoBehaviour
     private GameObject RaidMessage;
     [SerializeField]
     private GameObject RaidPanicMessage;
+    [SerializeField]
+    private GameObject FineMessage;
 
     void Awake()
     {
@@ -38,6 +40,7 @@ public class GameSpecialEventHandler : MonoBehaviour
     {
         RaidObject.SetActive(true);
         RaidPanicMessage.SetActive(false);
+        FineMessage.SetActive(false);
         RaidMessage.SetActive(true);
     }
 
@@ -50,11 +53,14 @@ public class GameSpecialEventHandler : MonoBehaviour
     {
         RaidObject.SetActive(false);
         PoisonObject.SetActive(false);
+        FineMessage.SetActive(false);
     }
 
     void CancelPanicButton()
     {
         RaidObject.transform.GetChild(0).gameObject.SetActive(false);
+        RaidMessage.SetActive(false);
+        FineMessage.SetActive(true);
     }
 
     void ReenablePanicButton()

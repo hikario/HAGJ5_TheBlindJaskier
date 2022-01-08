@@ -28,6 +28,7 @@ public class PanicButton : MonoBehaviour
         // Show Panic Message
         RaidMessage.SetActive(false);
         PanicPressedMessage.SetActive(true);
+        EventManager.TriggerEvent("PanicButtonPressed");
         // Send Police Down
         EventManager.TriggerEvent("RaidExit");
         EventManager.TriggerEvent("PoliceGoDown");
