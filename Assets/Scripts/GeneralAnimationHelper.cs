@@ -29,7 +29,8 @@ public class GeneralAnimationHelper : MonoBehaviour
         if (Assets.Scripts.Model.GlobalBar.ActiveCustomer == null)
             return;
 
-        var character = Instantiate(MyArmy[0], new Vector3(0, 0, 0), Quaternion.identity, transform);
+        int random = Random.Range(0, MyArmy.Count);
+        var character = Instantiate(MyArmy[random], new Vector3(0, 0, 0), Quaternion.identity, transform);
         Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character = character;
         Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_EnterToShop();
     }
@@ -37,10 +38,10 @@ public class GeneralAnimationHelper : MonoBehaviour
     //
     void OnUpdateToNextActiveCustomer()
     {
-        if (Assets.Scripts.Model.GlobalBar.ActiveCustomer.AllowedToEnter)
-            Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Accepted();
-        else
-            Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Rejected();
+        //if (Assets.Scripts.Model.GlobalBar.ActiveCustomer.AllowedToEnter)
+        //    Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Accepted();
+        //else
+        //    Assets.Scripts.Model.GlobalBar.ActiveCustomer.UI_Character.Anim_Rejected();
     }
 
 

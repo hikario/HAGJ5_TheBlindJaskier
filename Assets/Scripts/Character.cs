@@ -95,6 +95,9 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (emotionTimer == null)
+            return;
+
         if (emotionTimer.IsRunning && emotionTimer.Elapsed > _emotionDelay)
         {
             emotionTimer.Stop();

@@ -11,8 +11,10 @@ class Btn_AlcSource : MonoBehaviour
     List<Btn_AlcSource> _neibors = new List<Btn_AlcSource>();
     Button _btn;
     Image _rnd;
+    GlobalBar.AlcoholSources oldSource;
     private void Awake()
     {
+        oldSource = 0;
         _btn = GetComponent<Button>();
         _rnd = GetComponent<Image>();
         _btn.onClick.AddListener(OnClick);
@@ -22,6 +24,11 @@ class Btn_AlcSource : MonoBehaviour
     }
     private void Update()
     {
+        if (oldSource != GlobalBar.CurrentSource)
+        {
+            oldSource = GlobalBar.CurrentSource;
+            RefreshState();
+        }
         if (_btn.enabled && GlobalBar.SourceAvailability.HasFlag(alcoholSource) == false)
         {
             _btn.enabled = false;
