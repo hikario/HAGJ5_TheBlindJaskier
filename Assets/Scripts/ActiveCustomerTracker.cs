@@ -28,8 +28,8 @@ public class ActiveCustomerTracker : MonoBehaviour
 
     void OnDestroy()
     {
-        EventManager.RegisterEventListener("SetActiveCustomer", SetActiveCustomer);
-        EventManager.RegisterEventListener("UpdateToNextActiveCustomer", UpdateToNextActiveCustomer);
+        EventManager.DeregisterEventListener("SetActiveCustomer", SetActiveCustomer);
+        EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", UpdateToNextActiveCustomer);
     }
 
     void SetActiveCustomer()
