@@ -69,16 +69,7 @@ public class GeneralAnimationHelper : MonoBehaviour
         foreach (var cst in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
             cst.UI_Character.Anim_Exit();
     }
-
-    void OnEndOfTheNight()
-    {
-        foreach(Assets.Scripts.Model.BaseCustomer customer in Assets.Scripts.Model.GlobalBar.ActiveCustomers)
-        {
-            customer.UI_Character.Anim_Exit();
-        }
-        // EventManager.TriggerEvent("CustomersVacated");
-    }
-
+        
     public Character SpawnZomby()
     {
         if (MyArmy?.Count > 0)
