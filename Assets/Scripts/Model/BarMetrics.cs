@@ -126,6 +126,11 @@ namespace Assets.Scripts.Model
 
             // change PoisonProbability base on type and quality
             PoisonProbability = CalculatePoisoningProbability();
+            // Add raid probability with source
+            if(CurrentSource == AlcoholSources.Mafia)
+            {
+                IncreaseRaidProbability(4);
+            }
         }
 
         private static int CalculatePoisoningProbability()
