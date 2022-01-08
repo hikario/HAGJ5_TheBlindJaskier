@@ -55,6 +55,7 @@ public class BarFlowManager : MonoBehaviour
     {
         yield return new WaitForSeconds(10);
         EventManager.TriggerEvent("Raiding");
+        EventManager.TriggerEvent("CallPolice");
         Debug.Log("Raiding!");
         Assets.Scripts.Model.GlobalBar.RaidProbability = 0;
     }
@@ -64,13 +65,19 @@ public class BarFlowManager : MonoBehaviour
         yield return new WaitForSeconds(10);
         EventManager.TriggerEvent("Poisoning");
         Debug.Log("Poisoning!");
-
     }
 
     IEnumerator MoveOnWithDay()
     {
         yield return new WaitForSeconds(20);
-        EventManager.TriggerEvent("TheNightEnds");
+        if (!Assets.Scripts.Model.GlobalBar.IsRaidingNow)
+        {
+            EventManager.TriggerEvent("TheNightEnds");
+        }
+        else
+        {
+            EventManager.TriggerEvent("RaidOccurs");
+        }
     }
 
     bool GetRaidStatus()
@@ -88,6 +95,9 @@ public class BarFlowManager : MonoBehaviour
 
     bool GetPoisoningStatus()
     {
+        Debug.Log("Checking Poison Status");
+        Debug.Log("Poison Probability: " + Assets.Scripts.Model.GlobalBar.PoisonProbability.ToString());
+
         int randomEvent = Random.Range(0, 100);
         if (randomEvent < Assets.Scripts.Model.GlobalBar.PoisonProbability)
         {

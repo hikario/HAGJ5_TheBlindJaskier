@@ -34,7 +34,10 @@ namespace Assets.Scripts.Model
             if (expectationMatch < 0)
                 callTheCops();
             else if (expectationMatch > 0)
+            {
                 guardFromNextRaid();
+                GlobalBar.SatisfiedImportantCustomerList.Add(this);
+            }
 
             return expectationMatch;
         }

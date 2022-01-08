@@ -30,6 +30,12 @@ public class GameFlow : MonoBehaviour
         nightCanvas.SetActive(false);
 
         EventManager.TriggerEvent("UpdateMoney");
+        EventManager.RegisterEventListener("Consequences", OnConsequences);
+    }
+
+    void OnDestroy()
+    {
+        EventManager.DeregisterEventListener("Consequences", OnConsequences);
     }
     
     public void ProgressDay()
@@ -105,9 +111,15 @@ public class GameFlow : MonoBehaviour
         Assets.Scripts.Model.GlobalBar.ActiveCustomers = new List<Assets.Scripts.Model.BaseCustomer>();
     }
 
-    void Test()
+    void OnConsequences()
     {
-        Debug.Log("Received OnEndOfTheNight Event");
+        if(Assets.Scripts.Model.GlobalBar.FirstStrike)
+        {
+            // Trigger Fine Message and Fine
+            Assets.Scripts.Model.GlobalBar.Fine();
+            EventManager.TriggerEvent("UpdateMoney");
+            Assets.Scripts.Model.GlobalBar.FinancialConsequences = true;
+        }
     }
 
 }

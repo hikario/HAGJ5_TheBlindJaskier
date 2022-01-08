@@ -49,9 +49,12 @@ namespace Assets.Scripts.Model
         public static List<BaseCustomer> NewCustomers { get; set; }
         public static List<BaseCustomer> OldCustomers { get; set; }
         public static List<BaseCustomer> ActiveCustomers { get; set; }
+        public static List<ImportantCustomer> SatisfiedImportantCustomerList { get; set; }
         public static BaseCustomer ActiveCustomer { get; set; }
         public static List<string> PossibleCustomerNames { get; }
         public static List<string> UsedCustomerNames { get; set; }
+        public static bool FirstStrike { get; set; }
+        public static bool FinancialConsequences { get; set; }
         
 
         static GlobalBar()
@@ -68,6 +71,9 @@ namespace Assets.Scripts.Model
             UsedCustomerNames = new List<string>();
             OldCustomers = new List<BaseCustomer>();
             ActiveCustomers = new List<BaseCustomer>();
+            SatisfiedImportantCustomerList = new List<ImportantCustomer>();
+            FirstStrike = true;
+            FinancialConsequences = false;
         }
 
 
@@ -87,6 +93,12 @@ namespace Assets.Scripts.Model
                 if (RaidProbability < 0)
                     RaidProbability = 0;
             }
+        }
+
+        public static void Fine()
+        {
+            Money = Money - 1000.0M;
+            FirstStrike = false;
         }
 
         //called once user finished choose variables for the day
@@ -156,7 +168,15 @@ namespace Assets.Scripts.Model
 
         public static void OnDayChange()
         {
-            Money += EachDrinkCost * _countOfSoldDrinks;
+            if (FinancialConsequences)
+            {
+                Money += EachDrinkCost * _countOfSoldDrinks * 0.75M;
+            }
+            else
+            {
+                Money += EachDrinkCost * _countOfSoldDrinks;
+            }
+            FinancialConsequences = false;
 
             _countOfSoldDrinks = 0; // re-set count of drinks
         }

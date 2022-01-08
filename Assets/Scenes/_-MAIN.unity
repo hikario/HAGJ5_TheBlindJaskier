@@ -13668,6 +13668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870879387}
+  - component: {fileID: 870879388}
   m_Layer: 0
   m_Name: Events
   m_TagString: Untagged
@@ -13696,6 +13697,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &870879388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870879386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65755edcd77245f43ab5d60dcf962897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RaidObject: {fileID: 1873203269}
+  PoisonObject: {fileID: 987243660}
 --- !u!1001 &878111664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15421,6 +15436,7 @@ GameObject:
   - component: {fileID: 1007478468}
   - component: {fileID: 1007478467}
   - component: {fileID: 1007478466}
+  - component: {fileID: 1007478469}
   m_Layer: 0
   m_Name: Button_Panic
   m_TagString: Untagged
@@ -15491,19 +15507,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1007478467}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1331358070}
-        m_TargetAssemblyTypeName: GameFlow, Assembly-CSharp
-        m_MethodName: ProgressDay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1007478467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15542,6 +15546,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007478464}
   m_CullTransparentMesh: 1
+--- !u!114 &1007478469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007478464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c61cd8167423f4c86e63d643d0a5ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RaidMessage: {fileID: 1489023708}
+  PanicPressedMessage: {fileID: 2072512841}
 --- !u!1 &1013259508
 GameObject:
   m_ObjectHideFlags: 0
@@ -20306,6 +20324,7 @@ GameObject:
   - component: {fileID: 1331358071}
   - component: {fileID: 1331358070}
   - component: {fileID: 1331358072}
+  - component: {fileID: 1331358073}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -20352,6 +20371,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 747137c55551aef41a3759219fb497f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1331358073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331358069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc35b78eb2bf946488a26112a52a0a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1335200239
@@ -20567,7 +20598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1348478085
 RectTransform:
   m_ObjectHideFlags: 0

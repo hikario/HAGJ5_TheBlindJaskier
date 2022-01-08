@@ -21,10 +21,10 @@ public class GeneralAnimationHelper : MonoBehaviour
         EventManager.RegisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         //EventManager.RegisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer); // animation is triggered in CustomerChoiceSelector just before event called.
         //EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
-        EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.RegisterEventListener("EndOfTheNight", OnEndOfTheNight);
         EventManager.RegisterEventListener("TheNightEnds", OnATheNightEnds);
         EventManager.RegisterEventListener("CallPolice", OnCallPolice);
+        EventManager.RegisterEventListener("SendPoliceHome", OnSendPoliceHome);
         EventManager.RegisterEventListener("PoliceGoDown", OnPoliceGoDown);
     }
 
@@ -33,10 +33,10 @@ public class GeneralAnimationHelper : MonoBehaviour
         EventManager.DeregisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         //EventManager.DeregisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer);
         //EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
-        EventManager.DeregisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
         EventManager.DeregisterEventListener("EndOfTheNight", OnEndOfTheNight);
         EventManager.DeregisterEventListener("TheNightEnds", OnATheNightEnds);
         EventManager.DeregisterEventListener("CallPolice", OnCallPolice);
+        EventManager.DeregisterEventListener("SendPoliceHome", OnSendPoliceHome);
         EventManager.DeregisterEventListener("PoliceGoDown", OnPoliceGoDown);
     }
     internal void InitNightButtonHelper (Btn_Commit2_Night btn_Commit2_Night)
@@ -73,6 +73,23 @@ public class GeneralAnimationHelper : MonoBehaviour
                 cop.Anim_EnterToShop();
                 await System.Threading.Tasks.Task.Delay(700);
             }
+        });
+
+    }
+
+    void OnSendPoliceHome()
+    {
+        if (_activePolice == null || _activePolice.Count == 0)
+            return;
+
+        System.Threading.Tasks.Task.Run(async () =>
+        {
+            foreach (var cop in _activePolice)
+            {
+                cop.Anim_Rejected();
+                await System.Threading.Tasks.Task.Delay(700);
+            }
+            _activePolice.Clear();
         });
 
     }
