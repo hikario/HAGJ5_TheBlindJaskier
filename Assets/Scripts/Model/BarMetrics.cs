@@ -43,7 +43,7 @@ namespace Assets.Scripts.Model
         public static decimal Money { get; private set; }
         public static decimal EachDrinkCost { get; set; }
         public static int SatisfiedImportantCustomers { get; set; }
-        public static int RaidProbability { get; private set; }
+        public static int RaidProbability { get; set; }
         public static int RaidProbabilityStep { get; set; }
         public static int PoisonProbability { get; set; }
         public static List<BaseCustomer> NewCustomers { get; set; }
