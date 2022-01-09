@@ -14,6 +14,8 @@ public class GameSpecialEventHandler : MonoBehaviour
     private GameObject RaidPanicMessage;
     [SerializeField]
     private GameObject FineMessage;
+    [SerializeField]
+    private GameObject SaveMessage;
 
     void Awake()
     {
@@ -25,6 +27,7 @@ public class GameSpecialEventHandler : MonoBehaviour
         EventManager.RegisterEventListener("BeginOfTheNight", ClearUI);
         EventManager.RegisterEventListener("RaidOccurs", CancelPanicButton);
         EventManager.RegisterEventListener("EndOfTheNight", ReenablePanicButton);
+        EventManager.RegisterEventListener("SaveScreen", OnSaveScreen);
     }
 
     void OnDestroy()
@@ -34,6 +37,7 @@ public class GameSpecialEventHandler : MonoBehaviour
         EventManager.DeregisterEventListener("BeginOfTheNight", ClearUI);
         EventManager.DeregisterEventListener("RaidOccurs", CancelPanicButton);
         EventManager.DeregisterEventListener("EndOfTheNight", ReenablePanicButton);
+        EventManager.DeregisterEventListener("SaveScreen", OnSaveScreen);
     }
 
     void OnRaid()
@@ -41,6 +45,7 @@ public class GameSpecialEventHandler : MonoBehaviour
         RaidObject.SetActive(true);
         RaidPanicMessage.SetActive(false);
         FineMessage.SetActive(false);
+        SaveMessage.SetActive(false);
         RaidMessage.SetActive(true);
     }
 
@@ -54,6 +59,15 @@ public class GameSpecialEventHandler : MonoBehaviour
         RaidObject.SetActive(false);
         PoisonObject.SetActive(false);
         FineMessage.SetActive(false);
+        SaveMessage.SetActive(false);
+    }
+
+    void OnSaveScreen()
+    {
+        RaidPanicMessage.SetActive(false);
+        FineMessage.SetActive(false);
+        RaidMessage.SetActive(false);
+        SaveMessage.SetActive(true);
     }
 
     void CancelPanicButton()

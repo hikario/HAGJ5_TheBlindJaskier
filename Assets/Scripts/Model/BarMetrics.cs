@@ -72,7 +72,7 @@ namespace Assets.Scripts.Model
             CurrentSource = 0;
             CurrentQuality = 0;
             CurrentAlcoholPrices = 0;
-            Money = 12500.0M;
+            Money = 3000000.0M;
             EachDrinkCost = 300.0M;
             SatisfiedImportantCustomers = 0;
             RaidProbability = 0;
@@ -179,13 +179,23 @@ namespace Assets.Scripts.Model
             {
                 IncreaseRaidProbability(4);
             }
+            if(Year == 1920 || Year == 1925 || Year == 1930)
+            {
+                RaidProbability = 0;
+            }
         }
 
         private static int CalculatePoisoningProbability()
         {
+            if (Year == 1919)
+            {
+                return 0;
+            }
 
-            if (Assets.Scripts.Model.GlobalBar.Year == 1920 || Assets.Scripts.Model.GlobalBar.Year == 1925 || Assets.Scripts.Model.GlobalBar.Year == 1930)
+            if (Year == 1920 || Year == 1925 || Year == 1930)
+            {
                 return 100;
+            }
 
             if (CurrentSource == AlcoholSources.Detroit)
             {

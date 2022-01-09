@@ -141,7 +141,7 @@ public class Character : MonoBehaviour
             return;
         _exited = true;
         PlayAction("Rejected", true);
-        AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
+        // AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
     }
 
     public void Anim_Exit()
@@ -152,7 +152,7 @@ public class Character : MonoBehaviour
 
         PlayAction("GoUp", true);
         PlayAction("Exit", true);
-        AddJob(() => UnityEngine.Object.Destroy(gameObject,15f));
+        // AddJob(() => UnityEngine.Object.Destroy(gameObject,15f));
     }
 
     public void Anim_RaidExit()
@@ -161,7 +161,7 @@ public class Character : MonoBehaviour
             return;
         _exited = true;
         PlayAction("RaidExit", true);
-        AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
+        // AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
     }
 
     #endregion

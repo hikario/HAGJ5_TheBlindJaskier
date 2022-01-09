@@ -27,18 +27,20 @@ public class RaidHandler : MonoBehaviour
             Assets.Scripts.Model.GlobalBar.SatisfiedImportantCustomerList.Remove(customer);
 
             StartCoroutine(PauseAndGoDownstairs(customer));
+            Assets.Scripts.Model.GlobalBar.IsRaidingNow = false;
         }
         else
         {
             Debug.Log("CONSEQUENCES");
             EventManager.TriggerEvent("PoliceGoDown");
             EventManager.TriggerEvent("Consequences");
-            EventManager.TriggerEvent("TheNightEnds");
         }
+        EventManager.TriggerEvent("TheNightEnds");
     }
 
     IEnumerator PauseAndGoDownstairs(Assets.Scripts.Model.ImportantCustomer customer)
     {
+        EventManager.TriggerEvent("SaveScreen");
         customer.UI_Character.Anim_EnterToShop();
         // Pause 3 seconds, send police out event,
         // pause 3 more seconds, then go downstairs
