@@ -72,7 +72,7 @@ namespace Assets.Scripts.Model
             CurrentSource = 0;
             CurrentQuality = 0;
             CurrentAlcoholPrices = 0;
-            Money = 3000000.0M;
+            Money = 12500.0M;
             EachDrinkCost = 300.0M;
             SatisfiedImportantCustomers = 0;
             RaidProbability = 0;
