@@ -25,6 +25,7 @@ public class RaidHandler : MonoBehaviour
             Debug.Log("SAVED");
             Assets.Scripts.Model.ImportantCustomer customer = Assets.Scripts.Model.GlobalBar.SatisfiedImportantCustomerList[0];
             Assets.Scripts.Model.GlobalBar.SatisfiedImportantCustomerList.Remove(customer);
+            customer.UI_Character.CanBeDestroyed();
 
             StartCoroutine(PauseAndGoDownstairs(customer));
             Assets.Scripts.Model.GlobalBar.IsRaidingNow = false;

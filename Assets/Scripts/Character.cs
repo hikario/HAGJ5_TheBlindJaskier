@@ -32,6 +32,7 @@ public class Character : MonoBehaviour
 
     private Queue<Action> jobs = new Queue<Action>();
     bool _exited = false;
+    bool _leaveAlive = false;
     #region thread magic
     private int _threadId = 0;
     bool InvokeRequired { get => _threadId != System.Threading.Thread.CurrentThread.ManagedThreadId; }
@@ -106,6 +107,15 @@ public class Character : MonoBehaviour
         while (jobs.Count > 0)
             jobs.Dequeue().Invoke();
     }
+    public void DoNotDestroyYet()
+    {
+        _leaveAlive = true;
+    }
+    public void CanBeDestroyed()
+    {
+        _leaveAlive = false ;
+    }
+
     void AddJob(Action newJob)
     {
         jobs.Enqueue(newJob);
@@ -141,7 +151,9 @@ public class Character : MonoBehaviour
             return;
         _exited = true;
         PlayAction("Rejected", true);
-        // AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
+
+        if (_leaveAlive == false)
+            AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
     }
 
     public void Anim_Exit()
@@ -152,7 +164,9 @@ public class Character : MonoBehaviour
 
         PlayAction("GoUp", true);
         PlayAction("Exit", true);
-        // AddJob(() => UnityEngine.Object.Destroy(gameObject,15f));
+
+        if (_leaveAlive == false)
+            AddJob(() => UnityEngine.Object.Destroy(gameObject,17f));
     }
 
     public void Anim_RaidExit()
@@ -161,7 +175,9 @@ public class Character : MonoBehaviour
             return;
         _exited = true;
         PlayAction("RaidExit", true);
-        // AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
+
+        if (_leaveAlive == false)
+            AddJob(() => UnityEngine.Object.Destroy(gameObject, 10f));
     }
 
     #endregion

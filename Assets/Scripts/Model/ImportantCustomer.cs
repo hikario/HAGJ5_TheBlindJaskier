@@ -36,6 +36,7 @@ namespace Assets.Scripts.Model
             else if (expectationMatch > 0)
             {
                 guardFromNextRaid();
+                this.UI_Character.DoNotDestroyYet();
                 GlobalBar.SatisfiedImportantCustomerList.Add(this);
             }
 
