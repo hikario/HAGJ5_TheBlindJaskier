@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 
+#if UNITY_EDITOR
 public static class ReverseAnimationContext
 {
 
@@ -72,3 +73,4 @@ public static class ReverseAnimationContext
     }
 
 }
+#endif

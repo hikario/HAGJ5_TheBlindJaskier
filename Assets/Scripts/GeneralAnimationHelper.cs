@@ -68,16 +68,18 @@ public class GeneralAnimationHelper : MonoBehaviour
             _activePolice.Add(character);
         }
 
-        System.Threading.Tasks.Task.Run(async () =>
-        {
-            foreach (var cop in _activePolice)
-            {
-                cop.Anim_EnterToShop();
-                await System.Threading.Tasks.Task.Delay(700);
-            }
-        });
-
+        StartCoroutine(SpawnPolice(PoliceArmy));
     }
+
+    IEnumerator SpawnPolice(List<Character> PoliceArmy)
+    {
+        foreach (var cop in _activePolice)
+        {
+            cop.Anim_EnterToShop();
+            yield return new WaitForSeconds(0.7f);
+        }
+    }
+
 
     void OnSendPoliceHome()
     {
@@ -100,15 +102,25 @@ public class GeneralAnimationHelper : MonoBehaviour
     {
         if (_activePolice == null || _activePolice.Count == 0)
             return;
-        
-        System.Threading.Tasks.Task.Run(async () =>
+
+        PoliceGoDown(PoliceArmy);
+        //System.Threading.Tasks.Task.Run(async () =>
+        //{
+        //    foreach (var cop in _activePolice)
+        //    {
+        //        cop.Anim_Accepted();
+        //        await System.Threading.Tasks.Task.Delay(700);
+        //    }
+        //});
+    }
+
+    IEnumerator PoliceGoDown(List<Character> PoliceArmy)
+    {
+        foreach (var cop in _activePolice)
         {
-            foreach (var cop in _activePolice)
-            {
-                cop.Anim_Accepted();
-                await System.Threading.Tasks.Task.Delay(700);
-            }
-        });
+            cop.Anim_Accepted();
+            yield return new WaitForSeconds(0.7f);
+        }
     }
 
     void OnCustomerUpdateComplete()
