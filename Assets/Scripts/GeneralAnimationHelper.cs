@@ -15,9 +15,10 @@ public class GeneralAnimationHelper : MonoBehaviour
     private List<Character> _activePolice = null;
 
     private Btn_Commit2_Night _btn_Commit2_Night = null;
-
+        
     void Awake()
     {
+        //_threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
         EventManager.RegisterEventListener("CustomerUpdateComplete", OnCustomerUpdateComplete);
         //EventManager.RegisterEventListener("UpdateToNextActiveCustomer", OnUpdateToNextActiveCustomer); // animation is triggered in CustomerChoiceSelector just before event called.
         EventManager.RegisterEventListener("BeginOfTheNight", OnBeginOfTheNight);
@@ -103,15 +104,7 @@ public class GeneralAnimationHelper : MonoBehaviour
         if (_activePolice == null || _activePolice.Count == 0)
             return;
 
-        PoliceGoDown(PoliceArmy);
-        //System.Threading.Tasks.Task.Run(async () =>
-        //{
-        //    foreach (var cop in _activePolice)
-        //    {
-        //        cop.Anim_Accepted();
-        //        await System.Threading.Tasks.Task.Delay(700);
-        //    }
-        //});
+        StartCoroutine(PoliceGoDown(PoliceArmy));
     }
 
     IEnumerator PoliceGoDown(List<Character> PoliceArmy)
